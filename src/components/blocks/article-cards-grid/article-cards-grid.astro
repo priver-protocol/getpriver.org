@@ -1,0 +1,84 @@
+---
+import Heading from "../../ui/Heading.astro";
+import SectionLabel from "../../ui/SectionLabel.astro";
+import Markdown from "../../ui/Markdown.astro";
+interface Props {
+  id?: string;
+  background?: "white" | "zinc-50";
+  label: string;
+  heading: string;
+  description: string;
+  cards: Array<{
+    title: string;
+    description: string;
+    source_text: string;
+    source_href: string;
+  }>;
+  closer?: string;
+}
+
+const {
+  id,
+  background = "zinc-50",
+  label,
+  heading,
+  description,
+  cards,
+  closer,
+} = Astro.props;
+
+const bgClass = background === "zinc-50" ? "bg-zinc-50" : "";
+---
+
+<section
+  id={id}
+  class:list={["relative border-t border-zinc-200", bgClass]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="max-w-4xl">
+      <SectionLabel text={label} />
+      <Heading level="h2" size="section" text={heading} class="mt-4" />
+      <Markdown
+        as="p"
+        inline
+        content={description}
+        class="mt-6 text-lg text-zinc-700"
+      />
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        cards.map((card) => (
+          <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition flex flex-col">
+            <h3 class="text-lg font-semibold text-zinc-900">{card.title}</h3>
+            <Markdown
+              as="p"
+              inline
+              content={card.description}
+              class="mt-2 text-sm text-zinc-700 leading-relaxed"
+            />
+            <a
+              href={card.source_href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto pt-4 text-xs text-zinc-700 hover:text-zinc-900 underline underline-offset-2 decoration-zinc-500 hover:decoration-zinc-900 transition self-start"
+            >
+              {card.source_text}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    {
+      closer && (
+        <Markdown
+          as="p"
+          inline
+          content={closer}
+          class="mt-12 max-w-3xl text-xl text-zinc-700 leading-snug"
+        />
+      )
+    }
+  </div>
+</section>

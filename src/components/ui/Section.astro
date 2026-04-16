@@ -1,0 +1,40 @@
+---
+type Background = "white" | "zinc-50";
+type Spacing = "default" | "tight" | "none";
+
+interface Props {
+  id?: string;
+  background?: Background;
+  border?: boolean;
+  spacing?: Spacing;
+  class?: string;
+}
+
+const {
+  id,
+  background = "white",
+  border = true,
+  spacing = "default",
+  class: classAttr,
+} = Astro.props;
+
+const bgClass = background === "zinc-50" ? "bg-zinc-50" : "";
+const borderClass = border ? "border-t border-zinc-200" : "";
+const spacingClass =
+  spacing === "default"
+    ? "py-24 lg:py-32"
+    : spacing === "tight"
+      ? "py-16 lg:py-20"
+      : "";
+---
+
+<section id={id} class:list={["relative", borderClass, bgClass, classAttr]}>
+  <div
+    class:list={[
+      "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      spacingClass,
+    ]}
+  >
+    <slot />
+  </div>
+</section>

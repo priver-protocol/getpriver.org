@@ -1,0 +1,26 @@
+---
+import { site } from "../../data/site";
+const { emphasis, message } = site.statusStripe;
+---
+
+<div
+  role="status"
+  class="relative overflow-hidden border-b border-amber-300/60 bg-gradient-to-r from-amber-100 via-amber-50 to-amber-100"
+>
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-center gap-3 text-center"
+  >
+    <span class="relative flex h-2.5 w-2.5 shrink-0">
+      <span
+        class="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping"
+      ></span>
+      <span
+        class="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-600"
+      ></span>
+    </span>
+    <p class="text-sm sm:text-base text-amber-900">
+      <span class="font-semibold">{emphasis}</span>
+      {" "}{message}
+    </p>
+  </div>
+</div>

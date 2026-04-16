@@ -1,29 +1,33 @@
 {
   "name": "getpriver-org",
-  "version": "1.0.0",
-  "description": "Landing page for the Priver protocol — a serverless, end-to-end encrypted messaging protocol.",
+  "version": "2.0.0",
+  "description": "Landing site for the Priver protocol.",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./output.css --minify",
-    "dev": "tailwindcss -i ./input.css -o ./output.css --watch"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/priver-protocol/getpriver.org.git"
+  "dependencies": {
+    "astro": "^6.1.7",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/check": "^0.9.8",
+    "astro-icon": "^1.1.5",
+    "@iconify-json/lucide": "^1.2.102",
+    "@iconify-json/simple-icons": "^1.2.78",
+    "tailwindcss": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "marked": "^18.0.0",
+    "typescript": "^5.9.3",
+    "sharp": "^0.34.5"
   },
-  "keywords": [
-    "priver",
-    "privacy",
-    "messaging",
-    "end-to-end-encryption",
-    "tor",
-    "decentralized",
-    "open-protocol"
-  ],
-  "author": "Jetlio",
-  "license": "MIT",
-  "homepage": "https://getpriver.org/",
   "devDependencies": {
-    "tailwindcss": "^3.4.0"
+    "@types/node": "^24.7.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+import { Font } from "astro:assets";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import StatusStripe from "../components/layout/StatusStripe.astro";
+import BackgroundBlobs from "../components/ui/BackgroundBlobs.astro";
+import { site } from "../data/site";
+import type { SeoData } from "../lib/schemas";
+
+interface Props {
+  title: string;
+  seo?: SeoData;
+}
+
+const { title, seo } = Astro.props;
+
+const resolvedTitle = seo?.title ?? title;
+const description = seo?.description ?? site.defaultDescription;
+const canonical = seo?.canonical
+  ? new URL(seo.canonical, Astro.site).toString()
+  : new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(
+  seo?.og_image ?? site.defaultOgImage,
+  Astro.site,
+).toString();
+const ogType = seo?.og_type ?? "website";
+const twitterCard = seo?.twitter_card ?? "summary";
+const noIndex = seo?.no_index ?? false;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{resolvedTitle}</title>
+    <link rel="canonical" href={canonical} />
+
+    <!-- SEO -->
+    <meta name="title" content={resolvedTitle} />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noIndex ? "noindex, nofollow" : "index, follow"}
+    />
+    <meta name="language" content="English" />
+    <meta name="author" content={site.author} />
+    <meta name="keywords" content={site.keywords} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicons + manifest -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content={site.name} />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Self-hosted Inter (Astro v6 Fonts API) -->
+    <Font cssVariable="--font-inter" preload />
+  </head>
+  <body
+    class="bg-white text-zinc-900 antialiased selection:bg-priver-200 selection:text-priver-900"
+  >
+    <BackgroundBlobs />
+    <Header />
+    <main id="top" class="pt-16">
+      <StatusStripe />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

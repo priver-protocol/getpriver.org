@@ -1,0 +1,16 @@
+---
+import { renderInline, renderBlock } from "../../lib/markdown";
+
+interface Props {
+  content: string;
+  inline?: boolean;
+  class?: string;
+  as?: "span" | "div" | "p";
+}
+
+const { content, inline = false, class: classAttr, as } = Astro.props;
+const html = inline ? renderInline(content) : renderBlock(content);
+const Tag = as ?? (inline ? "span" : "div");
+---
+
+<Tag class={classAttr} set:html={html} />

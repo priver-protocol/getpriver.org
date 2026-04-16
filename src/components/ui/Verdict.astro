@@ -1,0 +1,44 @@
+---
+import type { Verdict } from "../../lib/schemas";
+
+interface Props {
+  value: Verdict;
+}
+const { value } = Astro.props;
+
+interface VerdictConfig {
+  glyph: string;
+  classes: string;
+  sr: string;
+}
+
+const config: Record<Verdict, VerdictConfig> = {
+  yes: {
+    glyph: "✓",
+    classes: "text-emerald-700 bg-emerald-100",
+    sr: "Yes",
+  },
+  no: {
+    glyph: "✕",
+    classes: "text-red-600 bg-red-100",
+    sr: "No",
+  },
+  partial: {
+    glyph: "!",
+    classes: "text-amber-700 bg-amber-100",
+    sr: "Partial / conditional",
+  },
+};
+
+const c: VerdictConfig = config[value]!;
+---
+
+<span
+  class:list={[
+    "inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-semibold",
+    c.classes,
+  ]}
+  aria-label={c.sr}
+>
+  <span aria-hidden="true">{c.glyph}</span>
+</span>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+const { text, class: classAttr } = Astro.props;
+---
+
+<span
+  class:list={[
+    "text-xs font-semibold uppercase tracking-widest text-priver-600",
+    classAttr,
+  ]}>{text}</span
+>

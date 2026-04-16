@@ -1,0 +1,118 @@
+---
+import Heading from "../../ui/Heading.astro";
+import SectionLabel from "../../ui/SectionLabel.astro";
+import Verdict from "../../ui/Verdict.astro";
+import Markdown from "../../ui/Markdown.astro";
+import type { Verdict as VerdictType } from "../../../lib/schemas";
+
+interface Props {
+  id?: string;
+  label: string;
+  heading: string;
+  description?: string;
+  columns: string[];
+  highlight_last?: boolean;
+  rows: Array<{
+    capability: string;
+    verdicts: VerdictType[];
+  }>;
+  legend?: string;
+}
+
+const {
+  id,
+  label,
+  heading,
+  description,
+  columns,
+  highlight_last = true,
+  rows,
+  legend,
+} = Astro.props;
+
+const lastIndex = columns.length - 1;
+---
+
+<section id={id} class="relative border-t border-zinc-200 bg-zinc-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="max-w-3xl">
+      <SectionLabel text={label} />
+      <Heading level="h2" size="section" text={heading} class="mt-4" />
+      {
+        description && (
+          <Markdown
+            as="p"
+            inline
+            content={description}
+            class="mt-6 text-lg text-zinc-700"
+          />
+        )
+      }
+    </div>
+
+    <div class="mt-12 -mx-4 sm:mx-0 overflow-x-auto">
+      <div class="min-w-[900px] px-4 sm:px-0">
+        <div
+          class="rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-sm"
+        >
+          <table class="w-full text-sm">
+            <thead>
+              <tr
+                class="text-left text-xs uppercase tracking-wider text-zinc-500 bg-zinc-50"
+              >
+                <th class="px-5 py-4 font-medium">Capability</th>
+                {
+                  columns.map((col, i) => (
+                    <th
+                      class:list={[
+                        "px-3 py-4 text-center",
+                        highlight_last && i === lastIndex
+                          ? "font-bold text-priver-700 bg-priver-50"
+                          : "font-medium",
+                      ]}
+                    >
+                      {col}
+                    </th>
+                  ))
+                }
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-100">
+              {
+                rows.map((row) => (
+                  <tr class="hover:bg-zinc-50/70">
+                    <th class="px-5 py-4 text-left font-medium text-zinc-800">
+                      {row.capability}
+                    </th>
+                    {row.verdicts.map((v, i) => (
+                      <td
+                        class:list={[
+                          "px-3 py-4 text-center",
+                          highlight_last && i === lastIndex
+                            ? "bg-priver-50"
+                            : "",
+                        ]}
+                      >
+                        <Verdict value={v} />
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        {
+          legend && (
+            <p class="mt-4 px-1 text-xs text-zinc-500">
+              <Verdict value="partial" />
+              <span class="ml-2 align-middle">
+                <Markdown inline content={legend} />
+              </span>
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

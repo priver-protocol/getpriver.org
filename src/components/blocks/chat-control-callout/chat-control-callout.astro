@@ -1,0 +1,115 @@
+---
+import SectionLabel from "../../ui/SectionLabel.astro";
+import Markdown from "../../ui/Markdown.astro";
+import Heading from "../../ui/Heading.astro";
+
+interface Props {
+  label: string;
+  heading: string;
+  paragraphs: string[];
+  bullets: string[];
+  quote_cards: Array<{ body: string; source: string; href: string }>;
+  status: { text: string; link_text: string; href: string };
+  closer?: string;
+}
+
+const {
+  label,
+  heading,
+  paragraphs,
+  bullets,
+  quote_cards,
+  status,
+  closer,
+} = Astro.props;
+---
+
+<section class="relative border-t border-zinc-200 bg-zinc-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div
+      class="relative overflow-hidden rounded-3xl border border-priver-200 bg-gradient-to-br from-priver-50 via-white to-white p-8 sm:p-12"
+    >
+      <div
+        aria-hidden="true"
+        class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-priver-200/50 blur-3xl"
+      >
+      </div>
+      <div class="relative">
+        <SectionLabel text={label} />
+        <h3
+          class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900"
+        >
+          {heading}
+        </h3>
+
+        {
+          paragraphs.map((p, i) => (
+            <Markdown
+              as="p"
+              inline
+              content={p}
+              class={
+                i === 0
+                  ? "mt-6 max-w-3xl text-zinc-700 leading-relaxed"
+                  : "mt-4 max-w-3xl text-zinc-700 leading-relaxed"
+              }
+            />
+          ))
+        }
+
+        <ul class="mt-6 space-y-2 text-zinc-700">
+          {
+            bullets.map((b) => (
+              <li class="flex items-center gap-2">
+                <span class="text-priver-600 leading-none">→</span>
+                <Markdown inline content={b} />
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-8 grid sm:grid-cols-2 gap-3">
+          {
+            quote_cards.map((card) => (
+              <a
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-700 hover:border-zinc-300 hover:shadow-sm transition block"
+              >
+                <Markdown as="span" inline content={card.body} class="block" />
+                <span class="mt-2 block text-xs text-zinc-700 underline underline-offset-2 decoration-zinc-500">
+                  {card.source}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+
+        <p class="mt-4 text-xs text-zinc-500">
+          {status.text}
+          {" "}
+          <a
+            href={status.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-700 hover:text-zinc-900 underline underline-offset-2 decoration-zinc-500 hover:decoration-zinc-900 transition"
+          >
+            {status.link_text}
+          </a>
+        </p>
+
+        {
+          closer && (
+            <Heading
+              level="h3"
+              size="subsection"
+              text={closer}
+              class="mt-8"
+            />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

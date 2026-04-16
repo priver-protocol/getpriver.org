@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Variant = "primary" | "secondary" | "ghost" | "platform" | "header";
+type Size = "sm" | "md" | "lg";
+
+interface Props {
+  href?: string;
+  text?: string;
+  variant?: Variant;
+  size?: Size;
+  iconLeft?: string;
+  iconRight?: string;
+  external?: boolean;
+  /** platform variant only — small caption above the platform name. */
+  platformLabel?: string;
+  class?: string;
+  /** override id, type etc. */
+  id?: string;
+  type?: "button" | "submit" | "reset";
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  text,
+  variant = "primary",
+  size = "md",
+  iconLeft,
+  iconRight,
+  external = false,
+  platformLabel,
+  class: classAttr,
+  id,
+  type,
+  ariaLabel,
+} = Astro.props;
+
+/* Base classes — shared by every variant. */
+const base =
+  "inline-flex items-center gap-2 rounded-xl font-medium transition select-none";
+
+/* Per-variant classes. The "header" variant is the small gradient pill used
+ * in the navigation; "platform" is the iOS/Android/Desktop tile in the
+ * download section. Both still share the base button shape. */
+const byVariant: Record<Variant, string> = {
+  primary:
+    "text-white bg-brand-gradient hover:brightness-110 shadow-lg shadow-priver-purple/30",
+  secondary:
+    "text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50",
+  ghost: "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100",
+  platform:
+    "text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50",
+  header:
+    "text-white bg-brand-gradient hover:brightness-110 shadow-md shadow-priver-purple/30 rounded-lg",
+};
+
+/* Per-size classes. */
+const bySize: Record<Size, string> = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3 text-base",
+  lg: "px-7 py-3.5 text-lg",
+};
+
+/* Some variants have their own padding rules. */
+const sizeClasses =
+  variant === "ghost"
+    ? "px-3 py-2 text-sm"
+    : variant === "platform"
+      ? "px-5 py-3 text-sm gap-3"
+      : variant === "header"
+        ? "px-4 py-2 text-sm font-medium"
+        : bySize[size];
+
+const externalAttrs = external
+  ? { target: "_blank", rel: "noopener noreferrer" }
+  : {};
+
+const Tag = href ? "a" : "button";
+
+const computedClass = [base, byVariant[variant], sizeClasses, classAttr];
+---
+
+<Tag
+  class:list={computedClass}
+  href={href}
+  id={id}
+  type={!href ? (type ?? "button") : undefined}
+  aria-label={ariaLabel}
+  {...externalAttrs}
+>
+  {iconLeft && <Icon name={iconLeft} class="w-5 h-5" aria-hidden="true" />}
+  {
+    variant === "platform" ? (
+      <span class="text-left leading-tight">
+        {platformLabel && (
+          <span class="block text-[10px] text-zinc-500">{platformLabel}</span>
+        )}
+        <span class="block text-sm font-semibold">{text}</span>
+      </span>
+    ) : (
+      text && <span>{text}</span>
+    )
+  }
+  {iconRight && <Icon name={iconRight} class="w-4 h-4" aria-hidden="true" />}
+</Tag>

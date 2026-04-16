@@ -1,0 +1,50 @@
+---
+/**
+ * Resolves frontmatter blocks (each with a `_component` discriminator) to the
+ * corresponding Astro component under `src/components/blocks/<name>/<name>.astro`.
+ *
+ * Build-time `import.meta.glob` collects every block component once; the
+ * registry maps block name -> component. Block name is derived from the file
+ * path: `blocks/hero/hero.astro` -> `"hero"`. If a folder contains multiple
+ * variants (e.g. `blocks/buttons/primary.astro`), the name becomes
+ * `"buttons/primary"`.
+ */
+
+interface Props {
+  blocks: Array<{ _component: string } & Record<string, unknown>>;
+}
+
+const modules = import.meta.glob<{ default: any }>(
+  "../components/blocks/**/*.astro",
+  { eager: true },
+);
+
+const registry: Record<string, any> = {};
+for (const [path, mod] of Object.entries(modules)) {
+  const match = path.match(/\/blocks\/([^/]+)\/([^/]+)\.astro$/);
+  if (!match) continue;
+  const dir = match[1]!;
+  const file = match[2]!;
+  const name = dir === file ? dir : `${dir}/${file}`;
+  registry[name] = mod.default;
+}
+
+const { blocks } = Astro.props;
+---
+
+{
+  blocks.map((block) => {
+    const Component = registry[block._component];
+    if (!Component) {
+      if (import.meta.env.DEV) {
+        return (
+          <div class="border border-red-400 bg-red-50 text-red-700 px-4 py-3 text-sm">
+            Unknown block: <code>{block._component}</code>
+          </div>
+        );
+      }
+      return null;
+    }
+    return <Component {...block} />;
+  })
+}

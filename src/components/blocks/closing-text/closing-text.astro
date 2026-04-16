@@ -1,0 +1,27 @@
+---
+import Markdown from "../../ui/Markdown.astro";
+
+interface Props {
+  primary: string;
+  secondary?: string;
+}
+
+const { primary, secondary } = Astro.props;
+---
+
+<section class="relative border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <p
+      class="max-w-3xl text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900"
+    >
+      <Markdown inline content={primary} />
+      {
+        secondary && (
+          <span class="block mt-3 text-zinc-700 font-normal text-lg sm:text-xl">
+            <Markdown inline content={secondary} />
+          </span>
+        )
+      }
+    </p>
+  </div>
+</section>

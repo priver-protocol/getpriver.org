@@ -1,0 +1,90 @@
+---
+import Heading from "../../ui/Heading.astro";
+import Markdown from "../../ui/Markdown.astro";
+import Button from "../../ui/Button.astro";
+import type { ButtonData, StatData } from "../../../lib/schemas";
+
+interface Props {
+  badge?: { text: string; href?: string; pulse?: boolean };
+  heading: string;
+  description: string;
+  buttons?: ButtonData[];
+  stats?: StatData[];
+}
+
+const { badge, heading, description, buttons = [], stats } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-36"
+  >
+    <div class="max-w-4xl">
+      {
+        badge &&
+          (badge.href ? (
+            <a
+              href={badge.href}
+              class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-700 border border-zinc-200 rounded-full px-3 py-1 bg-white/70 hover:bg-white transition"
+            >
+              {badge.pulse !== false && (
+                <span class="w-1.5 h-1.5 rounded-full bg-priver-purple animate-pulse" />
+              )}
+              {badge.text}
+            </a>
+          ) : (
+            <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-700 border border-zinc-200 rounded-full px-3 py-1 bg-white/70">
+              {badge.pulse !== false && (
+                <span class="w-1.5 h-1.5 rounded-full bg-priver-purple animate-pulse" />
+              )}
+              {badge.text}
+            </span>
+          ))
+      }
+
+      <Heading level="h1" size="hero" text={heading} class="mt-6" />
+
+      <Markdown
+        as="p"
+        inline
+        content={description}
+        class="mt-6 max-w-2xl text-lg sm:text-xl text-zinc-700 leading-relaxed"
+      />
+
+      {
+        buttons.length > 0 && (
+          <div class="mt-10 flex flex-wrap gap-3">
+            {buttons.map((b) => (
+              <Button
+                href={b.href}
+                text={b.text}
+                variant={b.variant}
+                size={b.size}
+                iconLeft={b.icon_left}
+                iconRight={b.icon_right}
+                external={b.external}
+                platformLabel={b.platform_label}
+                class={b.class}
+              />
+            ))}
+          </div>
+        )
+      }
+
+      {
+        stats && stats.length > 0 && (
+          <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-8 max-w-3xl">
+            {stats.map((s) => (
+              <div>
+                <dt class="text-sm text-zinc-500">{s.label}</dt>
+                <dd class="mt-1 text-2xl font-semibold text-zinc-900">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </div>
+  </div>
+</section>

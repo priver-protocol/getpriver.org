@@ -1,0 +1,72 @@
+---
+import SectionLabel from "../../ui/SectionLabel.astro";
+import Markdown from "../../ui/Markdown.astro";
+import Heading from "../../ui/Heading.astro";
+
+interface Props {
+  id?: string;
+  label: string;
+  heading: string;
+  paragraphs: string[];
+  callout: {
+    quote: string;
+    punchline: string;
+    cards: Array<{ label: string; value: string }>;
+  };
+}
+
+const { id, label, heading, paragraphs, callout } = Astro.props;
+---
+
+<section id={id} class="relative border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <SectionLabel text={label} />
+        <Heading text={heading} class="mt-4" />
+        {
+          paragraphs.map((p, i) => (
+            <Markdown
+              as="p"
+              inline
+              content={p}
+              class={
+                i === 0
+                  ? "mt-6 text-lg text-zinc-700 leading-relaxed"
+                  : "mt-4 text-lg text-zinc-700 leading-relaxed"
+              }
+            />
+          ))
+        }
+      </div>
+
+      <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-8">
+        <Markdown
+          as="p"
+          inline
+          content={callout.quote}
+          class="text-zinc-700 leading-relaxed"
+        />
+        <p
+          class="mt-6 text-2xl font-extrabold tracking-tight text-zinc-900"
+        >
+          {callout.punchline}
+        </p>
+        <div class="mt-8 grid grid-cols-3 gap-3">
+          {
+            callout.cards.map((c) => (
+              <div class="rounded-xl border border-zinc-200 bg-white px-3 py-4 text-center">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">
+                  {c.label}
+                </div>
+                <div class="mt-1 text-sm font-semibold text-zinc-900">
+                  {c.value}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

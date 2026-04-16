@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/Button.astro";
+import { nav } from "../../data/nav";
+---
+
+<header
+  class="fixed top-0 inset-x-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70"
+>
+  <nav
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+  >
+    <a href="/" class="flex items-center gap-2 group">
+      <img
+        src={nav.logo.src}
+        alt={nav.logo.alt}
+        class="h-7 w-auto group-hover:opacity-80 transition"
+      />
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 text-sm text-zinc-600">
+      {
+        nav.links.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-zinc-900 transition">
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={nav.github.href}
+        class="hidden sm:inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 px-3 py-2 rounded-lg hover:bg-zinc-100 transition"
+      >
+        <Icon name="simple-icons:github" class="w-4 h-4" aria-hidden="true" />
+        GitHub
+      </a>
+
+      <Button
+        href={nav.downloadCta.href}
+        text={nav.downloadCta.text}
+        variant="header"
+      />
+
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open menu</span>
+        <Icon
+          id="icon-menu"
+          name="lucide:menu"
+          class="w-6 h-6"
+          aria-hidden="true"
+        />
+        <Icon
+          id="icon-close"
+          name="lucide:x"
+          class="hidden w-6 h-6"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden border-t border-zinc-200 bg-white"
+  >
+    <ul class="px-4 py-4 space-y-1 text-sm">
+      {
+        nav.links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href={nav.github.href}
+          class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100"
+        >
+          GitHub
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle. Vanilla — no framework, no hydration cost.
+  const btn = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+  if (btn && menu && iconMenu && iconClose) {
+    btn.addEventListener("click", () => {
+      const opened = menu.classList.toggle("hidden") === false;
+      btn.setAttribute("aria-expanded", opened ? "true" : "false");
+      iconMenu.classList.toggle("hidden", opened);
+      iconClose.classList.toggle("hidden", !opened);
+    });
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        iconMenu.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+</script>

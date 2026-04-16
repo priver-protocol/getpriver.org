@@ -1,0 +1,75 @@
+---
+import SectionLabel from "../../ui/SectionLabel.astro";
+import Button from "../../ui/Button.astro";
+import type { ButtonData } from "../../../lib/schemas";
+
+interface Props {
+  id?: string;
+  label: string;
+  heading: string;
+  description: string;
+  buttons: ButtonData[];
+  footer_note?: string;
+}
+
+const {
+  id = "download",
+  label,
+  heading,
+  description,
+  buttons,
+  footer_note,
+} = Astro.props;
+---
+
+<section id={id} class="relative border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div
+      class="relative overflow-hidden rounded-3xl border border-priver-200 bg-gradient-to-br from-priver-50 via-white to-white p-10 sm:p-16"
+    >
+      <div
+        aria-hidden="true"
+        class="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-priver-200/50 blur-3xl"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-priver-100/60 blur-3xl"
+      >
+      </div>
+
+      <div class="relative max-w-3xl">
+        <SectionLabel text={label} />
+        <h2
+          class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900"
+        >
+          {heading}
+        </h2>
+        <p class="mt-6 text-lg text-zinc-700">{description}</p>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          {
+            buttons.map((b) => (
+              <Button
+                href={b.href}
+                text={b.text}
+                variant={b.variant}
+                size={b.size}
+                iconLeft={b.icon_left}
+                iconRight={b.icon_right}
+                external={b.external}
+                platformLabel={b.platform_label}
+              />
+            ))
+          }
+        </div>
+
+        {
+          footer_note && (
+            <p class="mt-10 text-sm text-zinc-500 italic">{footer_note}</p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
