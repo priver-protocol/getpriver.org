@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priver — Your message. Nobody else's.</title>
+    <link rel="canonical" href="https://getpriver.org/" />
+
+    <!-- Meta SEO -->
+    <meta name="title" content="Priver — Your message. Nobody else's.">
+    <meta name="description" content="Priver is a serverless, end-to-end encrypted messaging protocol built for the post-Chat-Control world. No accounts. No phone numbers. No central servers. No company that holds your data.">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Jetlio">
+    <meta name="keywords" content="Priver, private messaging, end-to-end encryption, decentralized messenger, Tor, Signal Protocol, Chat Control, peer-to-peer chat, open protocol">
+
+    <!-- Social media share -->
+    <meta property="og:title" content="Priver — Your message. Nobody else's.">
+    <meta property="og:site_name" content="Priver">
+    <meta property="og:url" content="https://getpriver.org/">
+    <meta property="og:description" content="A serverless, end-to-end encrypted messaging protocol with no accounts, no phone numbers, and no company in the middle. Built to outlast Chat Control.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://getpriver.org/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Priver — Your message. Nobody else's." />
+    <meta name="twitter:description" content="A serverless, end-to-end encrypted messaging protocol. No accounts. No phone numbers. No central servers." />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-white text-zinc-900 antialiased selection:bg-priver-200 selection:text-priver-900">
+
+    <!-- Decorative background gradients -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-[40rem] h-[40rem] rounded-full bg-priver-200/40 blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 w-[36rem] h-[36rem] rounded-full bg-priver-100/60 blur-3xl"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-2 group">
+                <img src="./images/logo/default-monochrome.svg" alt="Priver" class="h-7 w-auto group-hover:opacity-80 transition" />
+            </a>
+
+            <ul class="hidden lg:flex items-center gap-8 text-sm text-zinc-600">
+                <li><a href="#problem" class="hover:text-zinc-900 transition">The problem</a></li>
+                <li><a href="#solution" class="hover:text-zinc-900 transition">How it works</a></li>
+                <li><a href="#comparison" class="hover:text-zinc-900 transition">Comparison</a></li>
+                <li><a href="#architecture" class="hover:text-zinc-900 transition">Architecture</a></li>
+                <li><a href="#protocol" class="hover:text-zinc-900 transition">Protocol</a></li>
+            </ul>
+
+            <div class="flex items-center gap-2">
+                <a href="https://github.com/priver-protocol" class="hidden sm:inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 px-3 py-2 rounded-lg hover:bg-zinc-100 transition">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+                    GitHub
+                </a>
+                <a href="#download" class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg bg-gradient-to-r from-priver-purple to-priver-blue hover:brightness-110 shadow-md shadow-priver-purple/30 transition">Download</a>
+
+                <button id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open menu</span>
+                    <svg id="icon-menu" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="icon-close" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-zinc-200 bg-white">
+            <ul class="px-4 py-4 space-y-1 text-sm">
+                <li><a href="#problem" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">The problem</a></li>
+                <li><a href="#solution" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">How it works</a></li>
+                <li><a href="#comparison" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">Comparison</a></li>
+                <li><a href="#architecture" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">Architecture</a></li>
+                <li><a href="#protocol" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">Protocol</a></li>
+                <li><a href="https://github.com/priver-protocol" class="block px-3 py-2 rounded-md text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100">GitHub</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="top" class="pt-16">
+
+        <!-- HERO -->
+        <section class="relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-36">
+                <div class="max-w-4xl">
+                    <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-700 border border-zinc-200 rounded-full px-3 py-1 bg-white/70">
+                        <span class="w-1.5 h-1.5 rounded-full bg-priver-purple animate-pulse"></span>
+                        An open protocol — not a product
+                    </span>
+                    <h1 class="mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[1.05] text-zinc-900">
+                        Your message.<br>
+                        <span class="bg-gradient-to-r from-priver-purple to-priver-blue bg-clip-text text-transparent">Nobody else's.</span>
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg sm:text-xl text-zinc-700 leading-relaxed">
+                        Priver is a serverless, end-to-end encrypted messaging protocol. No accounts. No phone numbers. No central servers. No company that can be subpoenaed — because there is no one in between.
+                    </p>
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <a href="#download" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-medium text-white bg-gradient-to-r from-priver-purple to-priver-blue hover:brightness-110 shadow-lg shadow-priver-purple/30 transition">
+                            Download
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                        <a href="#solution" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-medium text-zinc-900 border border-zinc-300 bg-white hover:bg-zinc-50 transition">
+                            Learn more
+                        </a>
+                    </div>
+
+                    <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-8 max-w-3xl">
+                        <div>
+                            <dt class="text-sm text-zinc-500">Servers</dt>
+                            <dd class="mt-1 text-2xl font-semibold text-zinc-900">0</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm text-zinc-500">Phone numbers</dt>
+                            <dd class="mt-1 text-2xl font-semibold text-zinc-900">None</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm text-zinc-500">Transport</dt>
+                            <dd class="mt-1 text-2xl font-semibold text-zinc-900">Tor</dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm text-zinc-500">License</dt>
+                            <dd class="mt-1 text-2xl font-semibold text-zinc-900">Open</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM -->
+        <section id="problem" class="relative border-t border-zinc-200 bg-zinc-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="max-w-4xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">The problem</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                        Every message you've ever sent<br class="hidden sm:block">
+                        has been read. <span class="text-zinc-600">By someone other than you.</span>
+                    </h2>
+                    <p class="mt-6 text-lg text-zinc-700">
+                        Not maybe. Not possibly. <span class="text-zinc-900 font-semibold">Certainly.</span>
+                    </p>
+                </div>
+
+                <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">SMS</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Your carrier logs every message. Governments can request it. No warrant required in many countries.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Email</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Google reads it. Microsoft reads it. Every word, every attachment — indexed, analyzed, stored indefinitely.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">WhatsApp</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Owned by Meta. Your metadata — who you talk to, when, how often — is fully visible. And Meta sells attention for a living.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Telegram</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Not end-to-end encrypted by default. Group chats are stored on their servers in plain text. Telegram has handed over user data — including IP addresses and phone numbers.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">iMessage</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Backed up to iCloud by default. Apple can access those backups. And has.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Signal</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">The gold standard — until now. Still relies on centralized servers. Still requires your phone number. Those servers can be subpoenaed. And there's a new threat coming.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Threema</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Doesn't require a phone number — good. But still runs on centralized servers in Switzerland. Still a company. Still a single point that can be compelled, hacked, or shut down.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Wire</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">End-to-end encrypted, open source — but stores your contact graph on their servers. Metadata is exposed. Wire is a company with investors, meaning it answers to someone.</p>
+                    </article>
+                    <article class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-sm transition">
+                        <h3 class="text-lg font-semibold text-zinc-900">Briar</h3>
+                        <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Genuinely P2P, genuinely private. But Android only. No iOS. No mainstream adoption. A tool for the few, not the many.</p>
+                    </article>
+                </div>
+
+                <p class="mt-12 max-w-3xl text-xl text-zinc-700 leading-snug">
+                    <span class="text-zinc-900 font-semibold">The pattern is clear.</span> Every messenger you've heard of has a server. Every server has an owner. Every owner can be forced.
+                </p>
+
+                <!-- Chat Control callout -->
+                <div class="mt-16 relative overflow-hidden rounded-3xl border border-priver-200 bg-gradient-to-br from-priver-50 via-white to-white p-8 sm:p-12">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-priver-200/50 blur-3xl"></div>
+                    <div class="relative">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">Coming legislation</span>
+                        <h3 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900">The EU Chat Control regulation.</h3>
+                        <p class="mt-6 max-w-3xl text-zinc-700 leading-relaxed">
+                            Proposed legislation that would require <span class="text-zinc-900 font-semibold">every messaging platform</span> — Signal, WhatsApp, iMessage, Telegram — to scan every private message you send. Automatically. For content the government decides is prohibited.
+                        </p>
+                        <ul class="mt-6 space-y-2 text-zinc-700">
+                            <li class="flex items-start gap-2"><span class="text-priver-600 mt-1">→</span><span>End-to-end encryption? Broken by design.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-priver-600 mt-1">→</span><span>Your private conversations? No longer private.</span></li>
+                        </ul>
+                        <div class="mt-8 grid sm:grid-cols-2 gap-3">
+                            <div class="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-700">Signal said they would rather leave Europe than comply.</div>
+                            <div class="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-700">WhatsApp said the same.</div>
+                        </div>
+                        <p class="mt-8 text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900">
+                            Which leaves you with nothing.<br>
+                            <span class="bg-gradient-to-r from-priver-purple to-priver-blue bg-clip-text text-transparent">Unless you have Priver.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section id="solution" class="relative border-t border-zinc-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="max-w-4xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">The solution</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                        Priver is built different.<br>
+                        <span class="text-zinc-600">Fundamentally different.</span>
+                    </h2>
+                    <p class="mt-6 text-lg text-zinc-700 leading-relaxed">
+                        Not "we promise we don't look." Not "trust us." Not "we're a nonprofit."
+                    </p>
+
+                    <div class="mt-10 grid sm:grid-cols-3 gap-4">
+                        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+                            <p class="text-base font-semibold text-zinc-900">There is no server to subpoena.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+                            <p class="text-base font-semibold text-zinc-900">There is no company that holds your data.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+                            <p class="text-base font-semibold text-zinc-900">There is no one to comply — because there is no one in between.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20">
+                    <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">How it works</h3>
+                    <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-priver-purple to-priver-blue flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">No accounts. No phone numbers.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Your identity is a cryptographic key pair generated on your device. Nobody issues it. Nobody can revoke it. Nobody knows it exists.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-priver-purple to-priver-blue flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">No central servers.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Messages travel directly from your device to theirs — through Tor, which hides your IP, your location, and the fact that you're communicating at all.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-priver-purple to-priver-blue flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">End-to-end encrypted with Signal Protocol.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">The same Double Ratchet algorithm used by Signal — but without Signal's servers. Every message gets a unique key. Past messages stay safe even if your device is compromised today.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-priver-purple to-priver-blue flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">Decentralized discovery.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Finding another Priver user doesn't require a directory. It uses a distributed hash table — the same technology that powers BitTorrent — with no central point that can be shut down or seized.</p>
+                        </div>
+                        <div class="rounded-2xl border border-zinc-200 bg-white p-6 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-priver-purple to-priver-blue flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">Open source. Always.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Every line of code is public. Any researcher, security expert, or curious developer can verify exactly what Priver does and doesn't do. No black boxes. No trust required.</p>
+                        </div>
+                        <div class="rounded-2xl border border-priver-200 bg-gradient-to-br from-priver-50 to-white p-6">
+                            <div class="w-10 h-10 rounded-lg bg-white border border-priver-200 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-priver-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <h4 class="mt-5 text-lg font-semibold text-zinc-900">By design, not by promise.</h4>
+                            <p class="mt-2 text-sm text-zinc-700 leading-relaxed">Privacy isn't a marketing claim — it's the architecture. Take any link out and the system still respects you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARISON -->
+        <section id="comparison" class="relative border-t border-zinc-200 bg-zinc-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">The comparison</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                        What others can't promise.<br>
+                        <span class="text-zinc-600">What Priver does by design.</span>
+                    </h2>
+                </div>
+
+                <div class="mt-12 -mx-4 sm:mx-0 overflow-x-auto">
+                    <div class="min-w-[900px] px-4 sm:px-0">
+                        <div class="rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-sm">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="text-left text-xs uppercase tracking-wider text-zinc-500 bg-zinc-50">
+                                        <th class="px-5 py-4 font-medium">Capability</th>
+                                        <th class="px-3 py-4 font-medium text-center">SMS</th>
+                                        <th class="px-3 py-4 font-medium text-center">Email</th>
+                                        <th class="px-3 py-4 font-medium text-center">WhatsApp</th>
+                                        <th class="px-3 py-4 font-medium text-center">Telegram</th>
+                                        <th class="px-3 py-4 font-medium text-center">Signal</th>
+                                        <th class="px-3 py-4 font-medium text-center">Threema</th>
+                                        <th class="px-3 py-4 font-medium text-center">Wire</th>
+                                        <th class="px-3 py-4 font-medium text-center">Briar</th>
+                                        <th class="px-3 py-4 font-bold text-center text-priver-700 bg-priver-50">Priver</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-zinc-100">
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">End-to-end encrypted</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 text-amber-700" title="Not by default">!</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">No central servers</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">No phone number required</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">IP address hidden</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">iOS + Android support</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">Cannot comply with Chat Control</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">Open source protocol</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-zinc-50/70">
+                                        <th class="px-5 py-4 text-left font-medium text-zinc-800">Self-hostable</th>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600">✕</span></td>
+                                        <td class="px-3 py-4 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">✓</span></td>
+                                        <td class="px-3 py-4 text-center bg-priver-50"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-priver-100 text-priver-700">✓</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 px-1 text-xs text-zinc-500">
+                            <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-amber-100 text-amber-700 text-[10px] mr-1">!</span>
+                            Telegram is end-to-end encrypted only in opt-in "Secret Chats" — not by default.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section id="architecture" class="relative border-t border-zinc-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">How it's built</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                        Three layers.<br>
+                        <span class="text-zinc-600">Zero compromise.</span>
+                    </h2>
+                </div>
+
+                <div class="mt-12 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-8 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono uppercase tracking-widest text-priver-600">Layer 01</span>
+                            <span class="text-xs text-zinc-500">Specification</span>
+                        </div>
+                        <h3 class="mt-4 text-2xl font-bold text-zinc-900">Priver Protocol</h3>
+                        <p class="mt-3 text-sm text-zinc-700 leading-relaxed">The open standard. Published under an open license. Anyone can implement it, audit it, build on it. A communication protocol designed for the post-Chat-Control world.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-8 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono uppercase tracking-widest text-priver-600">Layer 02</span>
+                            <span class="text-xs text-zinc-500">Reference client</span>
+                        </div>
+                        <h3 class="mt-4 text-2xl font-bold text-zinc-900">Priver App</h3>
+                        <p class="mt-3 text-sm text-zinc-700 leading-relaxed">The reference implementation. Available for iOS, Android, and desktop. Simple enough for anyone. Secure enough for everyone.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-8 hover:border-priver-300 hover:shadow-md hover:shadow-priver-100/50 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono uppercase tracking-widest text-priver-600">Layer 03</span>
+                            <span class="text-xs text-zinc-500">Federated bridge</span>
+                        </div>
+                        <h3 class="mt-4 text-2xl font-bold text-zinc-900">Priver Gateway</h3>
+                        <p class="mt-3 text-sm text-zinc-700 leading-relaxed">The self-hosted bridge for iOS push notifications. Because Apple requires a server to wake up sleeping apps — we made it open source, federated, and operated by the community. You can run your own. The gateway never sees your messages. It only knocks on the door.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO IT'S FOR -->
+        <section class="relative border-t border-zinc-200 bg-zinc-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="max-w-4xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">Who it's for</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                        Priver is for everyone who has ever<br>
+                        assumed their messages were private.
+                    </h2>
+                </div>
+
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-6">
+                        <p class="text-base font-semibold text-zinc-900">Journalists</p>
+                        <p class="mt-1 text-sm text-zinc-700">protecting sources.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-6">
+                        <p class="text-base font-semibold text-zinc-900">Lawyers</p>
+                        <p class="mt-1 text-sm text-zinc-700">communicating with clients.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-6">
+                        <p class="text-base font-semibold text-zinc-900">Activists</p>
+                        <p class="mt-1 text-sm text-zinc-700">organizing in countries that criminalize dissent.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-6">
+                        <p class="text-base font-semibold text-zinc-900">Businesses</p>
+                        <p class="mt-1 text-sm text-zinc-700">discussing deals that can't leak.</p>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-200 bg-white p-6">
+                        <p class="text-base font-semibold text-zinc-900">Families</p>
+                        <p class="mt-1 text-sm text-zinc-700">who just want to talk without being a product.</p>
+                    </div>
+                </div>
+
+                <p class="mt-12 max-w-3xl text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
+                    And everyone in between.
+                    <span class="block mt-3 text-zinc-700 font-normal text-lg sm:text-xl">Privacy isn't a feature for the paranoid. It's a right for everyone.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- OPEN PROTOCOL -->
+        <section id="protocol" class="relative border-t border-zinc-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">Open protocol</span>
+                        <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-zinc-900">
+                            Built to outlast<br>
+                            any company —<br>
+                            <span class="bg-gradient-to-r from-priver-purple to-priver-blue bg-clip-text text-transparent">including us.</span>
+                        </h2>
+                        <p class="mt-6 text-lg text-zinc-700 leading-relaxed">
+                            Priver is a protocol, not a platform. Like email, like HTTP, like TCP/IP — it doesn't belong to anyone. It can't be bought, shut down, or forced to comply.
+                        </p>
+                        <p class="mt-4 text-lg text-zinc-700 leading-relaxed">
+                            The specification is public. The code is open. The network is distributed.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-8">
+                        <p class="text-zinc-700 leading-relaxed">
+                            If <span class="text-zinc-900 font-semibold">Jetlio</span> disappeared tomorrow, Priver would continue. Other developers would build clients. Other operators would run gateways. The protocol lives independently of the organization that created it.
+                        </p>
+                        <p class="mt-6 text-2xl font-extrabold tracking-tight text-zinc-900">
+                            That's the point.
+                        </p>
+
+                        <div class="mt-8 grid grid-cols-3 gap-3">
+                            <div class="rounded-xl border border-zinc-200 bg-white px-3 py-4 text-center">
+                                <div class="text-xs uppercase tracking-widest text-zinc-500">Spec</div>
+                                <div class="mt-1 text-sm font-semibold text-zinc-900">Public</div>
+                            </div>
+                            <div class="rounded-xl border border-zinc-200 bg-white px-3 py-4 text-center">
+                                <div class="text-xs uppercase tracking-widest text-zinc-500">Code</div>
+                                <div class="mt-1 text-sm font-semibold text-zinc-900">Open</div>
+                            </div>
+                            <div class="rounded-xl border border-zinc-200 bg-white px-3 py-4 text-center">
+                                <div class="text-xs uppercase tracking-widest text-zinc-500">Network</div>
+                                <div class="mt-1 text-sm font-semibold text-zinc-900">Distributed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / DOWNLOAD -->
+        <section id="download" class="relative border-t border-zinc-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+                <div class="relative overflow-hidden rounded-3xl border border-priver-200 bg-gradient-to-br from-priver-50 via-white to-white p-10 sm:p-16">
+                    <div class="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-priver-200/50 blur-3xl"></div>
+                    <div class="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-priver-100/60 blur-3xl"></div>
+
+                    <div class="relative max-w-3xl">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-priver-600">Get Priver</span>
+                        <h2 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900">
+                            Start talking privately.
+                        </h2>
+                        <p class="mt-6 text-lg text-zinc-700">
+                            Download Priver for iOS, Android, or desktop. Or read the protocol specification.
+                        </p>
+
+                        <div class="mt-10 flex flex-wrap gap-3">
+                            <a href="#" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-medium text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50 transition">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                                <div class="text-left leading-tight">
+                                    <div class="text-[10px] text-zinc-500">Download for</div>
+                                    <div class="text-sm font-semibold">iOS</div>
+                                </div>
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-medium text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50 transition">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.34a1.001 1.001 0 0 1-.872-1.5l1.658-2.866a8.96 8.96 0 0 0-4.31-1.077c-1.585 0-3.066.41-4.31 1.078l1.659 2.864a1 1 0 1 1-1.732 1l-1.624-2.81C5.85 13.5 4.252 16.014 4 19h16c-.252-2.987-1.85-5.5-4-6.97l-1.624 2.81a.999.999 0 0 1-.853.5zM7.5 16.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                                <div class="text-left leading-tight">
+                                    <div class="text-[10px] text-zinc-500">Download for</div>
+                                    <div class="text-sm font-semibold">Android</div>
+                                </div>
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-medium text-zinc-900 bg-white border border-zinc-300 hover:bg-zinc-50 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                <div class="text-left leading-tight">
+                                    <div class="text-[10px] text-zinc-500">Download for</div>
+                                    <div class="text-sm font-semibold">Desktop</div>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/priver-protocol" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-white bg-gradient-to-r from-priver-purple to-priver-blue hover:brightness-110 shadow-md shadow-priver-purple/30 transition">
+                                Read the Protocol
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
+
+                        <p class="mt-10 text-sm text-zinc-500 italic">Developed by Jetlio. Owned by no one.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-200 bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <img src="./images/logo/default-monochrome.svg" alt="Priver" class="h-7 w-auto" />
+                    <p class="mt-5 max-w-md text-zinc-700 text-sm leading-relaxed">
+                        <span class="text-zinc-900 font-semibold">Priver</span> — <em>Your message. Nobody else's.</em>
+                    </p>
+                    <p class="mt-3 text-sm text-zinc-500">
+                        Developed by Jetlio. Owned by no one.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Product</h4>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="#solution" class="text-zinc-700 hover:text-zinc-900">How it works</a></li>
+                            <li><a href="#comparison" class="text-zinc-700 hover:text-zinc-900">Comparison</a></li>
+                            <li><a href="#architecture" class="text-zinc-700 hover:text-zinc-900">Architecture</a></li>
+                            <li><a href="#download" class="text-zinc-700 hover:text-zinc-900">Download</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Protocol</h4>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="https://github.com/priver-protocol" class="text-zinc-700 hover:text-zinc-900">GitHub</a></li>
+                            <li><a href="#protocol" class="text-zinc-700 hover:text-zinc-900">Specification</a></li>
+                            <li><a href="https://github.com/priver-protocol" class="text-zinc-700 hover:text-zinc-900">Self-host gateway</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-zinc-500">Contact</h4>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="mailto:hello@getpriver.org" class="text-zinc-700 hover:text-zinc-900">hello@getpriver.org</a></li>
+                            <li><a href="https://getpriver.org" class="text-zinc-700 hover:text-zinc-900">getpriver.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-zinc-500">
+                <p>© <span id="year"></span> Priver Protocol. Released under an open license.</p>
+                <p>No accounts. No phone numbers. No servers. No middlemen.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        (function () {
+            var btn = document.getElementById('mobile-menu-toggle');
+            var menu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function () {
+                var open = menu.classList.toggle('hidden') === false;
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                iconMenu.classList.toggle('hidden', open);
+                iconClose.classList.toggle('hidden', !open);
+            });
+            // Close on link click
+            menu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    menu.classList.add('hidden');
+                    iconMenu.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
