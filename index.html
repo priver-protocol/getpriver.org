@@ -34,7 +34,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Priver" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link href="./output.css" rel="stylesheet">
+    <link href="./output.css?v=2" rel="stylesheet">
 </head>
 <body class="bg-white text-zinc-900 antialiased selection:bg-priver-200 selection:text-priver-900">
 
@@ -88,6 +88,20 @@
     </header>
 
     <main id="top" class="pt-16">
+
+        <!-- STATUS STRIPE -->
+        <div role="status" class="relative overflow-hidden border-b border-amber-300/60 bg-gradient-to-r from-amber-100 via-amber-50 to-amber-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-center gap-3 text-center">
+                <span class="relative flex h-2.5 w-2.5 shrink-0">
+                    <span class="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping"></span>
+                    <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-600"></span>
+                </span>
+                <p class="text-sm sm:text-base text-amber-900">
+                    <span class="font-semibold">Work in progress —</span>
+                    proof of concept verified. The v1 specification and reference apps are being prepared.
+                </p>
+            </div>
+        </div>
 
         <!-- HERO -->
         <section class="relative overflow-hidden">
