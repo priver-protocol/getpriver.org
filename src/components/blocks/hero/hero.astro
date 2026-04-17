@@ -80,6 +80,9 @@ const { badge, heading, description, buttons = [], stats } = Astro.props;
                 <dd class="mt-1 text-2xl font-semibold text-zinc-900">
                   {s.value}
                 </dd>
+                {s.sublabel && (
+                  <dd class="mt-0.5 text-xs text-zinc-400">{s.sublabel}</dd>
+                )}
               </div>
             ))}
           </dl>

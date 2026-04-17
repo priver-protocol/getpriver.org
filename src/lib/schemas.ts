@@ -24,6 +24,7 @@ export const buttonSchema = z.object({
 export const statSchema = z.object({
   label: z.string(),
   value: z.string(),
+  sublabel: z.string().optional(),
 });
 
 export const cardSchema = z.object({
@@ -31,6 +32,8 @@ export const cardSchema = z.object({
   icon: z.string().optional(),
   title: z.string(),
   description: z.string().optional(),
+  /** Optional link — wraps the card in an anchor. */
+  href: z.string().optional(),
   /** "highlight" gives the gradient-bordered styling. */
   variant: z.enum(["default", "highlight", "plain"]).default("default"),
   layer_number: z.string().optional(),
@@ -177,6 +180,43 @@ const chatControlCalloutBlock = z.object({
   closer: z.string().optional(),
 });
 
+const scenarioCardsBlock = z.object({
+  _component: z.literal("scenario-cards"),
+  id: z.string().optional(),
+  background: z.enum(["white", "zinc-50"]).default("white"),
+  label: z.string().optional(),
+  heading: headingSchema.optional(),
+  description: z.string().optional(),
+  cards: z.array(
+    z.object({
+      icon: z.string(),
+      scenario: z.string(),
+      without: z.string(),
+      with_priver: z.string(),
+    }),
+  ),
+  closer: z.string().optional(),
+});
+
+const splitFeatureBlock = z.object({
+  _component: z.literal("split-feature"),
+  id: z.string().optional(),
+  background: z.enum(["white", "zinc-50"]).default("white"),
+  label: z.string().optional(),
+  heading: headingSchema.optional(),
+  description: z.string().optional(),
+  bullets: z
+    .array(z.object({ icon: z.string(), text: z.string() }))
+    .optional(),
+  callout: z
+    .object({
+      quote: z.string(),
+      attribution: z.string().optional(),
+    })
+    .optional(),
+  reverse: z.boolean().default(false),
+});
+
 const articleCardsGridBlock = z.object({
   _component: z.literal("article-cards-grid"),
   id: z.string().optional(),
@@ -209,6 +249,8 @@ export const blockSchema = z.discriminatedUnion("_component", [
   comparisonTableBlock,
   chatControlCalloutBlock,
   articleCardsGridBlock,
+  scenarioCardsBlock,
+  splitFeatureBlock,
 ]);
 
 export type Block = zCore.infer<typeof blockSchema>;

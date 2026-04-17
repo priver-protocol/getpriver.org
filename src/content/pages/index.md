@@ -2,7 +2,7 @@
 title: "Priver — Your message. Nobody else's."
 seo:
   title: "Priver — Your message. Nobody else's."
-  description: "Priver is a serverless, end-to-end encrypted messaging protocol built for the post-Chat-Control world. No accounts. No phone numbers. No central servers. No company that holds your data."
+  description: "A messenger with no one in the middle. No accounts. No phone numbers. No servers. No company that can read, scan, or hand over your conversations — because none exists."
   canonical: "https://getpriver.org/"
   og_image: "/web-app-manifest-512x512.png"
   og_type: "website"
@@ -13,29 +13,29 @@ blocks:
       text: "An open protocol — not a product"
       pulse: true
     heading: "Your message. **Nobody else's.**"
-    description: "Priver is a serverless, end-to-end encrypted messaging protocol. No accounts. No phone numbers. No central servers. No company that can be subpoenaed — because there is no one in between."
+    description: "A messenger with no one in the middle. No accounts. No phone numbers. No servers. No company that can read, scan, or hand over your conversations — because none exists."
     buttons:
-      - text: "Download"
+      - text: "Get Priver"
         href: "#download"
         variant: primary
         size: md
         icon_right: "lucide:arrow-right"
-      - text: "Learn more"
+      - text: "See how it works"
         href: "#solution"
         variant: secondary
         size: md
     stats:
-      - { label: "Servers", value: "0" }
-      - { label: "Phone numbers", value: "None" }
-      - { label: "Transport", value: "Tor" }
-      - { label: "License", value: "Open" }
+      - { label: "Servers", value: "0", sublabel: "Nothing to subpoena" }
+      - { label: "Phone numbers", value: "None", sublabel: "Nothing to leak" }
+      - { label: "Transport", value: "Tor", sublabel: "Nothing to trace" }
+      - { label: "License", value: "Open", sublabel: "Nothing to hide" }
 
   - _component: feature-grid
     id: why
     background: zinc-50
     label: "Why Priver"
-    heading: "The messenger that *works when the others can't.*"
-    description: "Not just for privacy people. For anyone who's ever lost an account, watched a platform go down, or wondered why a messenger needs their phone number."
+    heading: "The messenger that *works when platforms go down, governments crack down, and companies give in.*"
+    description: "Not just for privacy people. For anyone who's ever lost an account, watched a service go dark, or wondered why a messenger needs their phone number."
     columns: 3
     cards:
       - icon: "lucide:badge-check"
@@ -54,13 +54,13 @@ blocks:
         title: "Your chats are yours."
         description: "You keep your history. You keep your keys. No cloud that forgets your password or raises its price. No terms of service to change the rules later."
       - icon: "lucide:lock"
-        title: "Nobody reads over your shoulder."
-        description: "End-to-end encrypted by default — the same math Signal uses. Not \"we promise not to look.\" Math."
+        title: "Not \"we promise not to look.\" Math."
+        description: "End-to-end encrypted by default — the same cryptography Signal uses, without Signal's servers. Your conversations are protected by mathematics, not corporate policy."
 
   - _component: cta-banner
     label: "Going deeper"
     heading: "Want the full threat model?"
-    description: "If you're a journalist, lawyer, activist, or just curious about exactly how every mainstream messenger leaks your data — read the deep dive. Every claim sourced. Side-by-side comparison. Why Chat Control doesn't touch Priver."
+    description: "If you're a [journalist](/for/journalists/), lawyer, activist, or just curious about exactly how every mainstream messenger leaks your data — read the deep dive. Every claim sourced. Side-by-side comparison. Why Chat Control doesn't touch Priver."
     button:
       text: "Read the threat model"
       href: "/threat-model/"
@@ -72,7 +72,7 @@ blocks:
     id: solution
     label: "The solution"
     heading: "Priver is built different. *Fundamentally different.*"
-    description: "Not \"we promise we don't look.\" Not \"trust us.\" Not \"we're a nonprofit.\""
+    description: "Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numbers, and the single organization that could be forced to comply."
     bullets:
       - text: "There is no server to subpoena."
       - text: "There is no company that holds your data."
@@ -97,7 +97,7 @@ blocks:
         description: "Every line of code is public. Any researcher, security expert, or curious developer can verify exactly what Priver does and doesn't do. No black boxes. No trust required."
       - icon: "lucide:check"
         title: "By design, not by promise."
-        description: "Privacy isn't a marketing claim — it's the architecture. Take any link out and the system still respects you."
+        description: "Not \"we promise we don't look.\" Not \"trust us.\" Not \"we're a nonprofit.\" Privacy isn't a marketing claim — it's the architecture."
         variant: highlight
 
   - _component: feature-grid
@@ -126,19 +126,20 @@ blocks:
     columns: 5
     cards:
       - title: "Journalists"
-        description: "protecting sources."
+        description: "because a source's safety may depend on your inbox."
+        href: "/for/journalists/"
         variant: plain
       - title: "Lawyers"
-        description: "communicating with clients."
+        description: "because privilege means nothing if the server can be read."
         variant: plain
       - title: "Activists"
-        description: "organizing in countries that criminalize dissent."
+        description: "because organizing shouldn't require risking your freedom."
         variant: plain
       - title: "Businesses"
-        description: "discussing deals that can't leak."
+        description: "because one leaked conversation can cost more than a breach."
         variant: plain
       - title: "Families"
-        description: "who just want to talk without being a product."
+        description: "because your dinner-table conversations aren't anyone's business model."
         variant: plain
     closing:
       primary: "And everyone in between."
@@ -162,8 +163,8 @@ blocks:
   - _component: download-cta
     id: download
     label: "Get Priver"
-    heading: "Start talking privately."
-    description: "Download Priver for iOS, Android, or desktop. Or read the protocol specification."
+    heading: "Start a conversation only you two can hear."
+    description: "Get Priver for iOS, Android, or desktop. Or read the protocol specification."
     buttons:
       - variant: platform
         text: "iOS"

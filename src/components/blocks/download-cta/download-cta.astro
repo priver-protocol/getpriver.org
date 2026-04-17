@@ -1,5 +1,6 @@
 ---
 import SectionLabel from "../../ui/SectionLabel.astro";
+import Heading from "../../ui/Heading.astro";
 import Button from "../../ui/Button.astro";
 import type { ButtonData } from "../../../lib/schemas";
 
@@ -40,11 +41,7 @@ const {
 
       <div class="relative max-w-3xl">
         <SectionLabel text={label} />
-        <h2
-          class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900"
-        >
-          {heading}
-        </h2>
+        <Heading level="h2" text={heading} class="mt-4 text-4xl sm:text-5xl lg:text-6xl" />
         <p class="mt-6 text-lg text-zinc-700">{description}</p>
 
         <div class="mt-10 flex flex-wrap gap-3">

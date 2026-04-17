@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon/components";
+import Heading from "../../ui/Heading.astro";
+import Markdown from "../../ui/Markdown.astro";
+import SectionLabel from "../../ui/SectionLabel.astro";
+
+interface BulletItem {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  id?: string;
+  background?: "white" | "zinc-50";
+  label?: string;
+  heading?: string;
+  description?: string;
+  bullets?: BulletItem[];
+  callout?: {
+    quote: string;
+    attribution?: string;
+  };
+  reverse?: boolean;
+}
+
+const {
+  id,
+  background = "white",
+  label,
+  heading,
+  description,
+  bullets,
+  callout,
+  reverse = false,
+} = Astro.props;
+
+const bgClass = background === "zinc-50" ? "bg-zinc-50" : "";
+---
+
+<section
+  id={id}
+  class:list={["relative border-t border-zinc-200", bgClass]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div
+      class:list={[
+        "grid lg:grid-cols-2 gap-12 lg:gap-16 items-center",
+        reverse && "lg:[direction:rtl] lg:[&>*]:[direction:ltr]",
+      ]}
+    >
+      <div>
+        {label && <SectionLabel text={label} />}
+        {heading && (
+          <Heading level="h2" size="section" text={heading} class="mt-4" />
+        )}
+        {description && (
+          <Markdown
+            as="p"
+            inline
+            content={description}
+            class="mt-6 text-lg text-zinc-700 leading-relaxed"
+          />
+        )}
+        {
+          bullets && bullets.length > 0 && (
+            <ul class="mt-8 space-y-4">
+              {bullets.map((b) => (
+                <li class="flex items-start gap-3">
+                  <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-md bg-brand-gradient-br flex items-center justify-center">
+                    <Icon
+                      name={b.icon}
+                      class="w-3.5 h-3.5 text-white"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <Markdown
+                    as="p"
+                    inline
+                    content={b.text}
+                    class="text-base text-zinc-700 leading-relaxed"
+                  />
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+
+      {
+        callout && (
+          <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-8">
+            <Markdown
+              as="p"
+              inline
+              content={callout.quote}
+              class="text-lg text-zinc-700 leading-relaxed italic"
+            />
+            {callout.attribution && (
+              <p class="mt-4 text-sm font-medium text-zinc-500">
+                {callout.attribution}
+              </p>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

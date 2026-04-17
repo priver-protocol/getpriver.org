@@ -26,10 +26,10 @@ blocks:
         variant: secondary
         size: md
     stats:
-      - { label: "Servers", value: "0" }
-      - { label: "Phone numbers", value: "None" }
-      - { label: "Transport", value: "Tor" }
-      - { label: "License", value: "Open" }
+      - { label: "Servers", value: "0", sublabel: "Nothing to subpoena" }
+      - { label: "Phone numbers", value: "None", sublabel: "Nothing to leak" }
+      - { label: "Transport", value: "Tor", sublabel: "Nothing to trace" }
+      - { label: "License", value: "Open", sublabel: "Nothing to hide" }
 
   - _component: article-cards-grid
     id: problem
@@ -101,7 +101,7 @@ blocks:
     id: solution
     label: "The solution"
     heading: "Priver is built different. *Fundamentally different.*"
-    description: "Not \"we promise we don't look.\" Not \"trust us.\" Not \"we're a nonprofit.\""
+    description: "Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numbers, and the single organization that could be forced to comply."
     bullets:
       - text: "There is no server to subpoena."
       - text: "There is no company that holds your data."
@@ -126,7 +126,7 @@ blocks:
         description: "Every line of code is public. Any researcher, security expert, or curious developer can verify exactly what Priver does and doesn't do. No black boxes. No trust required."
       - icon: "lucide:check"
         title: "By design, not by promise."
-        description: "Privacy isn't a marketing claim — it's the architecture. Take any link out and the system still respects you."
+        description: "Not \"we promise we don't look.\" Not \"trust us.\" Not \"we're a nonprofit.\" Privacy isn't a marketing claim — it's the architecture."
         variant: highlight
 
   - _component: comparison-table
@@ -188,11 +188,11 @@ blocks:
     heading: "Priver is for everyone who has ever **assumed their messages were private.**"
     columns: 5
     cards:
-      - { title: "Journalists", description: "protecting sources.", variant: plain }
-      - { title: "Lawyers", description: "communicating with clients.", variant: plain }
-      - { title: "Activists", description: "organizing in countries that criminalize dissent.", variant: plain }
-      - { title: "Businesses", description: "discussing deals that can't leak.", variant: plain }
-      - { title: "Families", description: "who just want to talk without being a product.", variant: plain }
+      - { title: "Journalists", description: "because a source's safety may depend on your inbox.", href: "/for/journalists/", variant: plain }
+      - { title: "Lawyers", description: "because privilege means nothing if the server can be read.", variant: plain }
+      - { title: "Activists", description: "because organizing shouldn't require risking your freedom.", variant: plain }
+      - { title: "Businesses", description: "because one leaked conversation can cost more than a breach.", variant: plain }
+      - { title: "Families", description: "because your dinner-table conversations aren't anyone's business model.", variant: plain }
     closing:
       primary: "And everyone in between."
       secondary: "Privacy isn't a feature for the paranoid. It's a right for everyone."
@@ -215,8 +215,8 @@ blocks:
   - _component: download-cta
     id: download
     label: "Get Priver"
-    heading: "Start talking privately."
-    description: "Download Priver for iOS, Android, or desktop. Or read the protocol specification."
+    heading: "Start a conversation only you two can hear."
+    description: "Get Priver for iOS, Android, or desktop. Or read the protocol specification."
     buttons:
       - { variant: platform, text: "iOS",     platform_label: "Download for", icon_left: "simple-icons:apple",   href: "#" }
       - { variant: platform, text: "Android", platform_label: "Download for", icon_left: "simple-icons:android", href: "#" }

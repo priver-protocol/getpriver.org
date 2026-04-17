@@ -13,5 +13,5 @@ export const nav = {
     { text: "Threat model", href: "/threat-model/" },
   ] satisfies NavLink[],
   github: { href: "https://github.com/priver-protocol" },
-  downloadCta: { text: "Download", href: "/#download" },
+  downloadCta: { text: "Get Priver", href: "/#download" },
 } as const;
