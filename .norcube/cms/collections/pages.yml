@@ -1,5 +1,5 @@
 label: Pages
-description: All site pages, including homepage and deep-dive articles.
+description: All site pages, including homepage, journalists, and threat model.
 hasBody: false
 fields:
   - key: title
@@ -47,12 +47,15 @@ fields:
         options:
           - summary
     preview:
-      title: [{key: title}]
-      description: [{key: description}]
-      image: [{key: og_image}]
+      title:
+        - key: title
+      description:
+        - key: description
+      image:
+        - key: og_image
   - key: blocks
     type: blocks
-    label: Page Blocks
+    label: Blocks
     components:
       - hero
       - feature-grid

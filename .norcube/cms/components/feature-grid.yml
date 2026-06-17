@@ -2,7 +2,7 @@ label: Feature Grid
 fields:
   - key: id
     type: enum
-    label: Section ID
+    label: ID
     options:
       - why
       - solution
@@ -24,13 +24,13 @@ fields:
   - key: heading
     type: markdown
     label: Heading
-    options: {bold: true, italic: true, singleLine: true}
-  - key: description
-    type: enum
-    label: Description
     options:
-      - Not just for privacy people. For anyone who's ever lost an account, watched a service go dark, or wondered why a messeng…
-      - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+      bold: true
+      italic: true
+      singleLine: true
+  - key: description
+    type: string
+    label: Description
   - key: columns
     type: number
     label: Columns
@@ -105,5 +105,8 @@ fields:
         options:
           - Privacy isn't a feature for the paranoid. It's a right for everyone.
 preview:
-  title: [{key: heading}, "Feature Grid"]
-  description: [{key: description}]
+  title:
+    - key: heading
+    - Feature Grid
+  description:
+    - key: description

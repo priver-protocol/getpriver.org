@@ -2,7 +2,7 @@ label: Protocol Section
 fields:
   - key: id
     type: enum
-    label: Section ID
+    label: ID
     options:
       - protocol
   - key: label
@@ -13,7 +13,10 @@ fields:
   - key: heading
     type: markdown
     label: Heading
-    options: {bold: true, italic: true, singleLine: true}
+    options:
+      bold: true
+      italic: true
+      singleLine: true
   - key: paragraphs
     type: array
     label: Paragraphs
@@ -27,7 +30,9 @@ fields:
       - key: quote
         type: markdown
         label: Quote
-        options: {bold: true, italic: true}
+        options:
+          bold: true
+          italic: true
       - key: punchline
         type: enum
         label: Punchline
@@ -55,5 +60,8 @@ fields:
                 - Open
                 - Distributed
 preview:
-  title: [{key: heading}, "Protocol Section"]
-  description: [{key: label}]
+  title:
+    - key: heading
+    - Protocol Section
+  description:
+    - key: label

@@ -2,7 +2,7 @@ label: Split Feature
 fields:
   - key: id
     type: enum
-    label: Section ID
+    label: ID
     options:
       - problem
       - how-it-works
@@ -15,13 +15,13 @@ fields:
   - key: heading
     type: markdown
     label: Heading
-    options: {bold: true, italic: true, singleLine: true}
-  - key: description
-    type: enum
-    label: Description
     options:
-      - You use Signal because it's "the gold standard." But Signal still requires a phone number — a number tied to your iden…
-      - Priver isn't a company making promises. It's a protocol making promises impossible to break.
+      bold: true
+      italic: true
+      singleLine: true
+  - key: description
+    type: string
+    label: Description
   - key: bullets
     type: array
     label: Bullets
@@ -43,7 +43,9 @@ fields:
         - key: text
           type: markdown
           label: Text
-          options: {bold: true, italic: true}
+          options:
+            bold: true
+            italic: true
   - key: callout
     type: object
     label: Callout
@@ -53,7 +55,7 @@ fields:
         label: Quote
         options:
           - A journalist's right to protect their sources means nothing if the messenger itself is the evidence.
-          - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+          - 'Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…'
   - key: background
     type: enum
     label: Background
@@ -63,5 +65,8 @@ fields:
     type: boolean
     label: Reverse
 preview:
-  title: [{key: heading}, "Split Feature"]
-  description: [{key: description}]
+  title:
+    - key: heading
+    - Split Feature
+  description:
+    - key: description

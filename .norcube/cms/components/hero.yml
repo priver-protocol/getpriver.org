@@ -22,7 +22,10 @@ fields:
   - key: heading
     type: markdown
     label: Heading
-    options: {bold: true, italic: true, singleLine: true}
+    options:
+      bold: true
+      italic: true
+      singleLine: true
   - key: description
     type: string
     label: Description
@@ -46,14 +49,11 @@ fields:
           type: enum
           label: Button Link
           options:
-            -
-            -
-            #download
-            #solution
+            - '#download'
+            - '#solution'
             - /threat-model/
-            -
-            -
-          #comparison
+            - '#problem'
+            - '#comparison'
         - key: variant
           type: enum
           label: Variant
@@ -91,7 +91,7 @@ fields:
           type: enum
           label: Value
           options:
-            - 0
+            - "0"
             - None
             - Tor
             - Open
@@ -106,5 +106,8 @@ fields:
             - Nothing to hide
             - Nothing to seize
 preview:
-  title: [{key: heading}, "Hero"]
-  description: [{key: description}]
+  title:
+    - key: heading
+    - Hero
+  description:
+    - key: description

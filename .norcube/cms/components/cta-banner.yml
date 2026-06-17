@@ -15,7 +15,10 @@ fields:
   - key: description
     type: markdown
     label: Description
-    options: {bold: true, italic: true, link: true}
+    options:
+      bold: true
+      italic: true
+      link: true
   - key: button
     type: object
     label: Button
@@ -46,5 +49,8 @@ fields:
         options:
           - lucide:arrow-right
 preview:
-  title: [{key: heading}, "CTA Banner"]
-  description: [{key: description}]
+  title:
+    - key: heading
+    - CTA Banner
+  description:
+    - key: description
