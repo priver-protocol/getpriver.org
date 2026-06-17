@@ -1,0 +1,534 @@
+label: Pages
+description: Content pages for the Priver site.
+hasBody: false
+fields:
+  - key: title
+    type: enum
+    label: Title
+    options:
+      - "Priver — Your message. Nobody else's."
+      - "Priver for Journalists — Protect your sources. Protect yourself."
+      - "The threat model — Priver"
+  - key: seo
+    type: object
+    label: SEO
+    fields:
+      - key: title
+        type: enum
+        label: Title
+        options:
+          - "Priver — Your message. Nobody else's."
+          - "Priver for Journalists — Protect your sources. Protect yourself."
+          - "The threat model — Priver"
+      - key: description
+        type: enum
+        label: Description
+        options:
+          - "A messenger with no one in the middle. No accounts. No phone numbers. No servers. No company that can read, scan, or han…"
+          - "Your source trusts you with their safety. Priver is the only messenger where there's no server to subpoena, no metadata …"
+          - "How every mainstream messenger leaks your data, why the EU's Chat Control breaks them all, and what Priver's architectur…"
+      - key: canonical
+        type: url
+        label: Canonical
+      - key: og_image
+        type: image
+        label: OG Image
+        accept: image/*
+        maxSize: 5242880
+      - key: og_type
+        type: enum
+        label: OG Type
+        options:
+          - website
+          - article
+      - key: twitter_card
+        type: enum
+        label: Twitter Card
+        options:
+          - summary
+  - key: blocks
+    type: blocks
+    label: Blocks
+    components:
+      - hero
+      - feature-grid
+      - cta-banner
+      - protocol-section
+      - download-cta
+      - split-feature
+      - scenario-cards
+      - article-cards-grid
+      - chat-control-callout
+      - comparison-table
+components:
+  hero:
+    label: Hero
+    fields:
+      - key: badge
+        type: object
+        label: Badge
+        fields:
+          - key: text
+            type: enum
+            label: Text
+            options:
+              - "An open protocol — not a product"
+              - "Priver for journalists"
+              - "Deep dive — back to Priver home"
+          - key: pulse
+            type: boolean
+            label: Pulse
+          - key: href
+            type: enum
+            label: Href
+            options:
+              - "/"
+      - key: heading
+        type: markdown
+        label: Heading
+        options: {bold: true, italic: true, singleLine: true}
+      - key: description
+        type: string
+        label: Description
+      - key: buttons
+        type: array
+        label: Buttons
+        itemType:
+          type: object
+          label: Button
+          fields:
+            - key: text
+              type: enum
+              label: Text
+              options:
+                - "Get Priver"
+                - "See how it works"
+                - "Read the threat model"
+                - "Start with the problem"
+                - "Jump to comparison"
+            - key: href
+              type: enum
+              label: Href
+              options:
+                - "#download"
+                - "#solution"
+                - "/threat-model/"
+                - "#problem"
+                - "#comparison"
+            - key: variant
+              type: enum
+              label: Variant
+              options:
+                - primary
+                - secondary
+            - key: size
+              type: enum
+              label: Size
+              options:
+                - md
+            - key: icon_right
+              type: enum
+              label: Icon Right
+              options:
+                - lucide:arrow-right
+                - lucide:arrow-down
+      - key: stats
+        type: array
+        label: Stats
+        itemType:
+          type: object
+          label: Stat
+          fields:
+            - key: label
+              type: enum
+              label: Label
+              options:
+                - Servers
+                - Phone numbers
+                - Transport
+                - License
+                - Metadata stored
+            - key: value
+              type: enum
+              label: Value
+              options:
+                - "0"
+                - None
+                - Tor
+                - Open
+                - Zero
+            - key: sublabel
+              type: enum
+              label: Sublabel
+              options:
+                - Nothing to subpoena
+                - Nothing to leak
+                - Nothing to trace
+                - Nothing to hide
+                - Nothing to seize
+    preview:
+      title: [{key: heading}, "Hero"]
+      description: [{key: description}]
+  feature-grid:
+    label: Feature Grid
+    fields:
+      - key: id
+        type: enum
+        label: ID
+        options:
+          - why
+          - solution
+          - architecture
+      - key: background
+        type: enum
+        label: Background
+        options:
+          - zinc-50
+      - key: label
+        type: enum
+        label: Label
+        options:
+          - Why Priver
+          - The solution
+          - How it's built
+          - Who it's for
+          - What this means for your work
+      - key: heading
+        type: markdown
+        label: Heading
+        options: {bold: true, italic: true, singleLine: true}
+      - key: description
+        type: enum
+        label: Description
+        options:
+          - Not just for privacy people. For anyone who's ever lost an account, watched a service go dark, or wondered why a messeng…
+          - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+      - key: columns
+        type: number
+        label: Columns
+      - key: cards
+        type: array
+        label: Cards
+        itemType:
+          type: object
+          label: Card
+          fields:
+            - key: icon
+              type: string
+              label: Icon
+            - key: title
+              type: string
+              label: Title
+            - key: description
+              type: string
+              label: Description
+            - key: variant
+              type: enum
+              label: Variant
+              options:
+                - highlight
+                - plain
+            - key: layer_number
+              type: enum
+              label: Layer Number
+              options:
+                - Layer 01
+                - Layer 02
+                - Layer 03
+            - key: layer_subtitle
+              type: enum
+              label: Layer Subtitle
+              options:
+                - Specification
+                - Reference client
+                - Federated bridge
+            - key: href
+              type: enum
+              label: Href
+              options:
+                - /for/journalists/
+      - key: bullets
+        type: array
+        label: Bullets
+        itemType:
+          type: object
+          label: Bullet
+          fields:
+            - key: text
+              type: string
+              label: Text
+      - key: subheading
+        type: enum
+        label: Subheading
+        options:
+          - How it works
+      - key: closing
+        type: object
+        label: Closing
+        fields:
+          - key: primary
+            type: enum
+            label: Primary
+            options:
+              - And everyone in between.
+          - key: secondary
+            type: enum
+            label: Secondary
+            options:
+              - Privacy isn't a feature for the paranoid. It's a right for everyone.
+    preview:
+      title: [{key: heading}, "Feature Grid"]
+      description: [{key: description}]
+  cta-banner:
+    label: CTA Banner
+    fields:
+      - key: label
+        type: enum
+        label: Label
+        options:
+          - Going deeper
+          - Go deeper
+      - key: heading
+        type: enum
+        label: Heading
+        options:
+          - Want the full threat model?
+          - Read the full threat model.
+      - key: description
+        type: markdown
+        label: Description
+        options: {bold: true, italic: true, link: true}
+      - key: button
+        type: object
+        label: Button
+        fields:
+          - key: text
+            type: enum
+            label: Text
+            options:
+              - Read the threat model
+          - key: href
+            type: enum
+            label: Href
+            options:
+              - /threat-model/
+          - key: variant
+            type: enum
+            label: Variant
+            options:
+              - primary
+          - key: size
+            type: enum
+            label: Size
+            options:
+              - md
+          - key: icon_right
+            type: enum
+            label: Icon Right
+            options:
+              - lucide:arrow-right
+    preview:
+      title: [{key: heading}, "CTA Banner"]
+      description: [{key: description}]
+  protocol-section:
+    label: Protocol Section
+    fields:
+      - key: id
+        type: enum
+        label: ID
+        options:
+          - protocol
+      - key: label
+        type: enum
+        label: Label
+        options:
+          - Open protocol
+      - key: heading
+        type: markdown
+        label: Heading
+        options: {bold: true, italic: true, singleLine: true}
+      - key: paragraphs
+        type: array
+        label: Paragraphs
+        itemType:
+          type: string
+          label: Paragraph
+      - key: callout
+        type: object
+        label: Callout
+        fields:
+          - key: quote
+            type: markdown
+            label: Quote
+            options: {bold: true, italic: true, singleLine: false}
+          - key: punchline
+            type: enum
+            label: Punchline
+            options:
+              - That's the point.
+          - key: cards
+            type: array
+            label: Cards
+            itemType:
+              type: object
+              label: Card
+              fields:
+                - key: label
+                  type: enum
+                  label: Label
+                  options:
+                    - Spec
+                    - Code
+                    - Network
+                - key: value
+                  type: enum
+                  label: Value
+                  options:
+                    - Public
+                    - Open
+                    - Distributed
+    preview:
+      title: [{key: heading}, "Protocol Section"]
+      description: [{key: label}]
+  download-cta:
+    label: Download CTA
+    fields:
+      - key: id
+        type: enum
+        label: ID
+        options:
+          - download
+      - key: label
+        type: enum
+        label: Label
+        options:
+          - Get Priver
+      - key: heading
+        type: markdown
+        label: Heading
+        options: {bold: true, italic: true, singleLine: true}
+      - key: description
+        type: enum
+        label: Description
+        options:
+          - Get Priver for iOS, Android, or desktop. Or read the protocol specification.
+      - key: buttons
+        type: array
+        label: Buttons
+        itemType:
+          type: object
+          label: Button
+          fields:
+            - key: variant
+              type: enum
+              label: Variant
+              options:
+                - platform
+                - header
+            - key: text
+              type: enum
+              label: Text
+              options:
+                - iOS
+                - Android
+                - Desktop
+                - Read the Protocol
+            - key: platform_label
+              type: enum
+              label: Platform Label
+              options:
+                - Download for
+            - key: icon_left
+              type: enum
+              label: Icon Left
+              options:
+                - simple-icons:apple
+                - simple-icons:android
+                - lucide:monitor
+            - key: href
+              type: url
+              label: Href
+            - key: icon_right
+              type: enum
+              label: Icon Right
+              options:
+                - lucide:arrow-right
+            - key: external
+              type: boolean
+              label: External
+      - key: footer_note
+        type: enum
+        label: Footer Note
+        options:
+          - Developed by Jetlio. Owned by no one.
+    preview:
+      title: [{key: heading}, "Download CTA"]
+      description: [{key: description}]
+  split-feature:
+    label: Split Feature
+    fields:
+      - key: id
+        type: enum
+        label: ID
+        options:
+          - problem
+          - how-it-works
+      - key: label
+        type: enum
+        label: Label
+        options:
+          - The problem
+          - How it works
+      - key: heading
+        type: markdown
+        label: Heading
+        options: {bold: true, italic: true, singleLine: true}
+      - key: description
+        type: enum
+        label: Description
+        options:
+          - You use Signal because it's "the gold standard." But Signal still requires a phone number — a number tied to your iden…
+          - Priver isn't a company making promises. It's a protocol making promises impossible to break.
+      - key: bullets
+        type: array
+        label: Bullets
+        itemType:
+          type: object
+          label: Bullet
+          fields:
+            - key: icon
+              type: enum
+              label: Icon
+              options:
+                - lucide:phone
+                - lucide:server
+                - lucide:cloud
+                - lucide:key-round
+                - lucide:route
+                - lucide:lock
+                - lucide:network
+            - key: text
+              type: markdown
+              label: Text
+              options: {bold: true, italic: true, link: true}
+      - key: callout
+        type: object
+        label: Callout
+        fields:
+          - key: quote
+            type: enum
+            label: Quote
+            options:
+              - A journalist's right to protect their sources means nothing if the messenger itself is the evidence.
+              - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+      - key: background
+        type: enum
+        label: Background
+        options:
+          - white
+      - key: reverse
+        type: boolean
+        label: Reverse
+    preview:
+      title: [{key: heading}, "Split Feature"]
+      description: [{key: description}]
