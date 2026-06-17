@@ -77,6 +77,8 @@ collections:
           - article-cards-grid
           - split-feature
           - scenario-cards
+          - chat-control-callout
+          - comparison-table
 
     components:
       # ---------- hero ----------
@@ -605,6 +607,154 @@ collections:
                 label: Quote
                 rows: 3
                 default: ""
+
+      # ---------- chat-control-callout ----------
+      chat-control-callout:
+        label: Chat Control callout
+        description: Themed callout block — paragraphs + bullets + quoted source cards + status footer.
+        preview:
+          title: [{ key: heading }, "Chat Control callout"]
+          description: [{ key: closer }]
+        fields:
+          label:
+            type: string
+            label: Eyebrow
+            default: ""
+          heading:
+            type: string
+            label: Heading
+            required: true
+            default: ""
+          paragraphs:
+            type: array
+            label: Paragraphs
+            itemType:
+              type: textarea
+              label: Paragraph
+              rows: 3
+              default: ""
+          bullets:
+            type: array
+            label: Bullets
+            description: Plain strings — markdown allowed inside each.
+            itemType:
+              type: textarea
+              label: Bullet
+              rows: 2
+              default: ""
+          quote_cards:
+            type: array
+            label: Quote cards
+            itemType:
+              type: object
+              label: Quote card
+              preview:
+                title: [{ key: source }, "Quote"]
+                description: [{ key: body }]
+              fields:
+                body:
+                  type: textarea
+                  label: Body
+                  description: Markdown / HTML allowed.
+                  rows: 3
+                  required: true
+                  default: ""
+                source:
+                  type: string
+                  label: Source label
+                  default: ""
+                href:
+                  type: url
+                  label: Source URL
+                  default: ""
+          status:
+            type: object
+            label: Status footer
+            nullable: true
+            fields:
+              text:
+                type: textarea
+                label: Status text
+                rows: 2
+                default: ""
+              link_text:
+                type: string
+                label: Link label
+                default: ""
+              href:
+                type: url
+                label: Link URL
+                default: ""
+          closer:
+            type: textarea
+            label: Closer
+            description: Last paragraph below the status.
+            rows: 2
+            default: ""
+
+      # ---------- comparison-table ----------
+      comparison-table:
+        label: Comparison table
+        description: Capability matrix — rows are features, columns are products, each cell is a verdict.
+        preview:
+          title: [{ key: heading }, "Comparison table"]
+          description: [{ key: legend }]
+        fields:
+          id:
+            type: string
+            label: Anchor id
+            default: ""
+          label:
+            type: string
+            label: Eyebrow
+            default: ""
+          heading:
+            type: string
+            label: Heading
+            required: true
+            default: ""
+          columns:
+            type: array
+            label: Columns
+            description: Product names shown across the header row.
+            itemType:
+              type: string
+              label: Column
+              default: ""
+          highlight_last:
+            type: boolean
+            label: Highlight last column
+            description: Visual emphasis on the rightmost column (e.g. our own product).
+            default: false
+          rows:
+            type: array
+            label: Rows
+            itemType:
+              type: object
+              label: Row
+              preview:
+                title: [{ key: capability }, "Row"]
+              fields:
+                capability:
+                  type: string
+                  label: Capability
+                  required: true
+                  default: ""
+                verdicts:
+                  type: array
+                  label: Verdicts
+                  description: One entry per column, in the same order.
+                  itemType:
+                    type: enum
+                    label: Verdict
+                    options: ["yes", "no", "partial"]
+                    default: "no"
+          legend:
+            type: textarea
+            label: Legend
+            description: Optional footnote under the table.
+            rows: 2
+            default: ""
 
       # ---------- scenario-cards ----------
       scenario-cards:
