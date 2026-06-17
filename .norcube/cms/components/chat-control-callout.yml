@@ -1,0 +1,79 @@
+label: Chat Control Callout
+description: A callout highlighting key points about the EU Chat Control regulation.
+fields:
+  - key: bullets
+    type: array
+    label: Bullets
+    itemType:
+      type: enum
+      label: Bullet
+      options:
+        - End-to-end encryption? Broken by design.
+        - Your private conversations? No longer private.
+  - key: closer
+    type: markdown
+    label: Closer
+    description: A closing statement or call to action.
+  - key: heading
+    type: string
+    label: Heading
+    description: Main heading for the callout.
+  - key: label
+    type: string
+    label: Label
+    description: Short label or tag for the callout.
+  - key: paragraphs
+    type: array
+    label: Paragraphs
+    itemType:
+      type: enum
+      label: Paragraph
+      options:
+        - The proposed EU "CSA Regulation" — widely known as Chat Control — would require **every messaging platform** operati…
+  - key: quote_cards
+    type: array
+    label: Quote Cards
+    itemType:
+      type: object
+      label: Quote Card
+      fields:
+        - key: body
+          type: html
+          label: Body
+          description: Quoted statement or excerpt.
+        - key: href
+          type: url
+          label: Source Link
+          description: URL to the source of the quote.
+        - key: source
+          type: string
+          label: Source
+          description: Attribution or source of the quote.
+      preview:
+        title:
+          - key: source
+        description:
+          - key: body
+  - key: status
+    type: object
+    label: Status
+    fields:
+      - key: href
+        type: url
+        label: Status Link
+        description: URL to more information about the status.
+      - key: link_text
+        type: string
+        label: Link Text
+        description: Text for the status link.
+      - key: text
+        type: string
+        label: Status Text
+        description: Current status description.
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: closer
+    - key: paragraphs
