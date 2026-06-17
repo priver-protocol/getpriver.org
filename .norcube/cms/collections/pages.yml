@@ -1,5 +1,5 @@
 label: Pages
-description: All site pages, including homepage, journalists, and threat model.
+description: All site pages.
 hasBody: false
 fields:
   - key: title
@@ -15,14 +15,14 @@ fields:
     fields:
       - key: title
         type: enum
-        label: SEO Title
+        label: Title
         options:
           - Priver — Your message. Nobody else's.
           - Priver for Journalists — Protect your sources. Protect yourself.
           - The threat model — Priver
       - key: description
         type: enum
-        label: SEO Description
+        label: Description
         options:
           - A messenger with no one in the middle. No accounts. No phone numbers. No servers. No company that can read, scan, or han…
           - Your source trusts you with their safety. Priver is the only messenger where there's no server to subpoena, no metadata …

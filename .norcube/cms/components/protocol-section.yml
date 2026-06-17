@@ -1,4 +1,5 @@
 label: Protocol Section
+description: Section highlighting the open protocol and its properties.
 fields:
   - key: id
     type: enum
@@ -21,8 +22,11 @@ fields:
     type: array
     label: Paragraphs
     itemType:
-      type: string
+      type: enum
       label: Paragraph
+      options:
+        - Priver is a protocol, not a platform. Like email, like HTTP, like TCP/IP — it doesn't belong to anyone. It can't be bo…
+        - The specification is public. The code is open. The network is distributed.
   - key: callout
     type: object
     label: Callout
@@ -59,9 +63,15 @@ fields:
                 - Public
                 - Open
                 - Distributed
+          preview:
+            title:
+              - key: label
+            description:
+              - key: value
+            image: []
 preview:
   title:
     - key: heading
-    - Protocol Section
   description:
-    - key: label
+    - key: paragraphs
+  image: []

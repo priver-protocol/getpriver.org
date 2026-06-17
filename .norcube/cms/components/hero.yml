@@ -1,4 +1,5 @@
 label: Hero
+description: A prominent section with badge, heading, description, buttons, and stats.
 fields:
   - key: badge
     type: object
@@ -6,7 +7,7 @@ fields:
     fields:
       - key: text
         type: enum
-        label: Badge Text
+        label: Text
         options:
           - An open protocol — not a product
           - Priver for journalists
@@ -16,7 +17,7 @@ fields:
         label: Pulse
       - key: href
         type: enum
-        label: Badge Link
+        label: Href
         options:
           - /
   - key: heading
@@ -24,11 +25,14 @@ fields:
     label: Heading
     options:
       bold: true
-      italic: true
       singleLine: true
   - key: description
-    type: string
+    type: enum
     label: Description
+    options:
+      - A messenger with no one in the middle. No accounts. No phone numbers. No servers. No company that can read, scan, or han…
+      - Every major messenger has a server. Every server has an owner. Every owner can be subpoenaed, hacked, or compelled. Priv…
+      - How every mainstream messenger leaks your data, why the EU's Chat Control breaks them all, and what Priver's architectur…
   - key: buttons
     type: array
     label: Buttons
@@ -38,7 +42,7 @@ fields:
       fields:
         - key: text
           type: enum
-          label: Button Text
+          label: Text
           options:
             - Get Priver
             - See how it works
@@ -47,7 +51,7 @@ fields:
             - Jump to comparison
         - key: href
           type: enum
-          label: Button Link
+          label: Href
           options:
             - '#download'
             - '#solution'
@@ -71,6 +75,9 @@ fields:
           options:
             - lucide:arrow-right
             - lucide:arrow-down
+      preview:
+        title:
+          - key: text
   - key: stats
     type: array
     label: Stats
@@ -105,9 +112,13 @@ fields:
             - Nothing to trace
             - Nothing to hide
             - Nothing to seize
+      preview:
+        title:
+          - key: label
+        description:
+          - key: sublabel
 preview:
   title:
     - key: heading
-    - Hero
   description:
     - key: description

@@ -1,8 +1,9 @@
-label: Download CTA
+label: Download Cta
+description: A call-to-action section for downloading Priver.
 fields:
   - key: id
     type: enum
-    label: ID
+    label: Id
     options:
       - download
   - key: label
@@ -11,15 +12,16 @@ fields:
     options:
       - Get Priver
   - key: heading
-    type: markdown
+    type: enum
     label: Heading
     options:
-      bold: true
-      italic: true
-      singleLine: true
+      - Start a conversation only you two can hear.
+      - Protect the conversation. **Protect the source.**
   - key: description
-    type: string
+    type: enum
     label: Description
+    options:
+      - Get Priver for iOS, Android, or desktop. Or read the protocol specification.
   - key: buttons
     type: array
     label: Buttons
@@ -35,7 +37,7 @@ fields:
             - header
         - key: text
           type: enum
-          label: Button Text
+          label: Text
           options:
             - iOS
             - Android
@@ -55,7 +57,7 @@ fields:
             - lucide:monitor
         - key: href
           type: enum
-          label: Button Link
+          label: Href
           options:
             - '#'
             - https://github.com/priver-protocol
@@ -67,6 +69,11 @@ fields:
         - key: external
           type: boolean
           label: External
+      preview:
+        title:
+          - key: text
+        description: []
+        image: []
   - key: footer_note
     type: enum
     label: Footer Note
@@ -75,6 +82,6 @@ fields:
 preview:
   title:
     - key: heading
-    - Download CTA
   description:
     - key: description
+  image: []

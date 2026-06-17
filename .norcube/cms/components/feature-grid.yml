@@ -1,4 +1,5 @@
 label: Feature Grid
+description: A grid layout for showcasing features with optional headings, descriptions, and cards.
 fields:
   - key: id
     type: enum
@@ -22,15 +23,20 @@ fields:
       - Who it's for
       - What this means for your work
   - key: heading
-    type: markdown
+    type: enum
     label: Heading
     options:
-      bold: true
-      italic: true
-      singleLine: true
+      - The messenger that *works when platforms go down, governments crack down, and companies give in.*
+      - Priver is built different. *Fundamentally different.*
+      - Three layers. *Zero compromise.*
+      - Priver is for everyone who has ever **assumed their messages were private.**
+      - The freedoms that *matter to journalists.*
   - key: description
-    type: string
+    type: enum
     label: Description
+    options:
+      - Not just for privacy people. For anyone who's ever lost an account, watched a service go dark, or wondered why a messeng…
+      - 'Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…'
   - key: columns
     type: number
     label: Columns
@@ -72,9 +78,16 @@ fields:
             - Federated bridge
         - key: href
           type: enum
-          label: Card Link
+          label: Href
           options:
             - /for/journalists/
+      preview:
+        title:
+          - key: title
+        description:
+          - key: description
+        image:
+          - key: icon
   - key: bullets
     type: array
     label: Bullets
@@ -83,8 +96,12 @@ fields:
       label: Bullet
       fields:
         - key: text
-          type: string
+          type: enum
           label: Text
+          options:
+            - There is no server to subpoena.
+            - There is no company that holds your data.
+            - There is no one to comply — because there is no one in between.
   - key: subheading
     type: enum
     label: Subheading
@@ -107,6 +124,7 @@ fields:
 preview:
   title:
     - key: heading
-    - Feature Grid
+    - key: label
   description:
     - key: description
+  image: []

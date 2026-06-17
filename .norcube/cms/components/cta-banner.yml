@@ -1,4 +1,5 @@
-label: CTA Banner
+label: Cta Banner
+description: A call-to-action banner with heading, description, and button.
 fields:
   - key: label
     type: enum
@@ -13,24 +14,23 @@ fields:
       - Want the full threat model?
       - Read the full threat model.
   - key: description
-    type: markdown
+    type: enum
     label: Description
     options:
-      bold: true
-      italic: true
-      link: true
+      - If you're a [journalist](/for/journalists/), lawyer, activist, or just curious about exactly how every mainstream messen…
+      - A side-by-side comparison of every major messenger — what they log, what they hand over, and why Chat Control breaks t…
   - key: button
     type: object
     label: Button
     fields:
       - key: text
         type: enum
-        label: Button Text
+        label: Text
         options:
           - Read the threat model
       - key: href
         type: enum
-        label: Button Link
+        label: Href
         options:
           - /threat-model/
       - key: variant
@@ -51,6 +51,7 @@ fields:
 preview:
   title:
     - key: heading
-    - CTA Banner
+    - key: label
   description:
     - key: description
+  image: []
