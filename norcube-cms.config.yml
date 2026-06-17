@@ -113,16 +113,23 @@ collections:
                 label: Pulse indicator
                 default: false
           heading:
-            type: string
+            type: markdown
             label: Heading
-            description: Markdown allowed (**bold**, *italic*).
+            description: One line. Bold + italic allowed; lists/headings/links are off.
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 3
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           buttons:
             type: array
             label: Buttons
@@ -214,16 +221,23 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
-            description: Markdown allowed.
+            description: One line. Bold + italic only; other shortcuts are dead.
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 2
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           bullets:
             type: array
             label: Lead-in bullets
@@ -262,15 +276,22 @@ collections:
                   description: e.g. `lucide:lock`.
                   default: ""
                 title:
-                  type: string
+                  type: markdown
                   label: Title
                   required: true
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    singleLine: true
                 description:
-                  type: textarea
+                  type: markdown
                   label: Description
-                  rows: 3
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
                 href:
                   type: string
                   label: Link target
@@ -316,15 +337,22 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 3
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           button:
             type: object
             label: Button
@@ -370,32 +398,46 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           paragraphs:
             type: array
             label: Paragraphs
             itemType:
-              type: textarea
+              type: markdown
               label: Paragraph
-              rows: 3
               default: ""
+              options:
+                bold: true
+                italic: true
+                link: true
           callout:
             type: object
             label: Callout
             nullable: true
             fields:
               quote:
-                type: textarea
+                type: markdown
                 label: Quote
-                rows: 3
                 default: ""
+                options:
+                  bold: true
+                  italic: true
+                  link: true
               punchline:
-                type: string
+                type: markdown
                 label: Punchline
                 default: ""
+                options:
+                  bold: true
+                  italic: true
+                  singleLine: true
               cards:
                 type: array
                 label: Mini cards
@@ -434,15 +476,22 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 2
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           buttons:
             type: array
             label: Buttons
@@ -512,15 +561,22 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 3
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           cards:
             type: array
             label: Cards
@@ -532,15 +588,22 @@ collections:
                 description: [{ key: description }]
               fields:
                 title:
-                  type: string
+                  type: markdown
                   label: Title
                   required: true
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    singleLine: true
                 description:
-                  type: textarea
+                  type: markdown
                   label: Description
-                  rows: 4
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
                 source_text:
                   type: string
                   label: Source label
@@ -568,15 +631,22 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 4
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           bullets:
             type: array
             label: Bullets
@@ -592,21 +662,27 @@ collections:
                   description: e.g. `lucide:phone`.
                   default: ""
                 text:
-                  type: textarea
+                  type: markdown
                   label: Text
-                  rows: 2
                   required: true
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
           callout:
             type: object
             label: Callout
             nullable: true
             fields:
               quote:
-                type: textarea
+                type: markdown
                 label: Quote
-                rows: 3
                 default: ""
+                options:
+                  bold: true
+                  italic: true
+                  link: true
 
       # ---------- chat-control-callout ----------
       chat-control-callout:
@@ -621,27 +697,36 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           paragraphs:
             type: array
             label: Paragraphs
             itemType:
-              type: textarea
+              type: markdown
               label: Paragraph
-              rows: 3
               default: ""
+              options:
+                bold: true
+                italic: true
+                link: true
           bullets:
             type: array
             label: Bullets
-            description: Plain strings — markdown allowed inside each.
             itemType:
-              type: textarea
+              type: markdown
               label: Bullet
-              rows: 2
               default: ""
+              options:
+                bold: true
+                italic: true
+                link: true
           quote_cards:
             type: array
             label: Quote cards
@@ -653,12 +738,15 @@ collections:
                 description: [{ key: body }]
               fields:
                 body:
-                  type: textarea
+                  type: html
                   label: Body
-                  description: Markdown / HTML allowed.
-                  rows: 3
+                  description: Inline HTML allowed (the priver content uses <span> for emphasis).
                   required: true
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
                 source:
                   type: string
                   label: Source label
@@ -673,10 +761,13 @@ collections:
             nullable: true
             fields:
               text:
-                type: textarea
+                type: markdown
                 label: Status text
-                rows: 2
                 default: ""
+                options:
+                  bold: true
+                  italic: true
+                  link: true
               link_text:
                 type: string
                 label: Link label
@@ -686,11 +777,14 @@ collections:
                 label: Link URL
                 default: ""
           closer:
-            type: textarea
+            type: markdown
             label: Closer
             description: Last paragraph below the status.
-            rows: 2
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
 
       # ---------- comparison-table ----------
       comparison-table:
@@ -709,10 +803,14 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           columns:
             type: array
             label: Columns
@@ -750,11 +848,14 @@ collections:
                     options: ["yes", "no", "partial"]
                     default: "no"
           legend:
-            type: textarea
+            type: markdown
             label: Legend
             description: Optional footnote under the table.
-            rows: 2
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
 
       # ---------- scenario-cards ----------
       scenario-cards:
@@ -778,15 +879,22 @@ collections:
             label: Eyebrow
             default: ""
           heading:
-            type: string
+            type: markdown
             label: Heading
             required: true
             default: ""
+            options:
+              bold: true
+              italic: true
+              singleLine: true
           description:
-            type: textarea
+            type: markdown
             label: Description
-            rows: 3
             default: ""
+            options:
+              bold: true
+              italic: true
+              link: true
           cards:
             type: array
             label: Cards
@@ -802,18 +910,27 @@ collections:
                   label: Icon
                   default: ""
                 scenario:
-                  type: textarea
+                  type: markdown
                   label: Scenario
-                  rows: 2
                   required: true
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    singleLine: true
                 without:
-                  type: textarea
+                  type: markdown
                   label: Without Priver
-                  rows: 4
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
                 with_priver:
-                  type: textarea
+                  type: markdown
                   label: With Priver
-                  rows: 4
                   default: ""
+                  options:
+                    bold: true
+                    italic: true
+                    link: true
