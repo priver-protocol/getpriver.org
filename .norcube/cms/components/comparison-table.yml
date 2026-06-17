@@ -1,0 +1,67 @@
+label: Comparison Table
+description: A table comparing features across multiple services.
+fields:
+  - key: columns
+    type: array
+    label: Columns
+    itemType:
+      type: enum
+      label: Column
+      options:
+        - SMS
+        - Email
+        - WhatsApp
+        - Telegram
+        - Signal
+        - Threema
+        - Wire
+        - Briar
+        - Priver
+  - key: heading
+    type: markdown
+    label: Heading
+    options:
+      bold: true
+      italic: true
+      singleLine: true
+  - key: highlight_last
+    type: boolean
+    label: Highlight Last
+  - key: id
+    type: string
+    label: ID
+  - key: label
+    type: string
+    label: Label
+  - key: legend
+    type: string
+    label: Legend
+  - key: rows
+    type: array
+    label: Rows
+    itemType:
+      type: object
+      label: Row
+      fields:
+        - key: capability
+          type: string
+          label: Capability
+        - key: verdicts
+          type: array
+          label: Verdicts
+          itemType:
+            type: enum
+            label: Verdict
+            options:
+              - no
+              - yes
+              - partial
+      preview:
+        title:
+          - key: capability
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: legend
