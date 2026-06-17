@@ -1,0 +1,67 @@
+label: Split Feature
+fields:
+  - key: id
+    type: enum
+    label: Section ID
+    options:
+      - problem
+      - how-it-works
+  - key: label
+    type: enum
+    label: Label
+    options:
+      - The problem
+      - How it works
+  - key: heading
+    type: markdown
+    label: Heading
+    options: {bold: true, italic: true, singleLine: true}
+  - key: description
+    type: enum
+    label: Description
+    options:
+      - You use Signal because it's "the gold standard." But Signal still requires a phone number — a number tied to your iden…
+      - Priver isn't a company making promises. It's a protocol making promises impossible to break.
+  - key: bullets
+    type: array
+    label: Bullets
+    itemType:
+      type: object
+      label: Bullet
+      fields:
+        - key: icon
+          type: enum
+          label: Icon
+          options:
+            - lucide:phone
+            - lucide:server
+            - lucide:cloud
+            - lucide:key-round
+            - lucide:route
+            - lucide:lock
+            - lucide:network
+        - key: text
+          type: markdown
+          label: Text
+          options: {bold: true, italic: true}
+  - key: callout
+    type: object
+    label: Callout
+    fields:
+      - key: quote
+        type: enum
+        label: Quote
+        options:
+          - A journalist's right to protect their sources means nothing if the messenger itself is the evidence.
+          - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+  - key: background
+    type: enum
+    label: Background
+    options:
+      - white
+  - key: reverse
+    type: boolean
+    label: Reverse
+preview:
+  title: [{key: heading}, "Split Feature"]
+  description: [{key: description}]

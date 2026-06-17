@@ -1,0 +1,110 @@
+label: Hero
+fields:
+  - key: badge
+    type: object
+    label: Badge
+    fields:
+      - key: text
+        type: enum
+        label: Badge Text
+        options:
+          - An open protocol — not a product
+          - Priver for journalists
+          - Deep dive — back to Priver home
+      - key: pulse
+        type: boolean
+        label: Pulse
+      - key: href
+        type: enum
+        label: Badge Link
+        options:
+          - /
+  - key: heading
+    type: markdown
+    label: Heading
+    options: {bold: true, italic: true, singleLine: true}
+  - key: description
+    type: string
+    label: Description
+  - key: buttons
+    type: array
+    label: Buttons
+    itemType:
+      type: object
+      label: Button
+      fields:
+        - key: text
+          type: enum
+          label: Button Text
+          options:
+            - Get Priver
+            - See how it works
+            - Read the threat model
+            - Start with the problem
+            - Jump to comparison
+        - key: href
+          type: enum
+          label: Button Link
+          options:
+            -
+            -
+            #download
+            #solution
+            - /threat-model/
+            -
+            -
+          #comparison
+        - key: variant
+          type: enum
+          label: Variant
+          options:
+            - primary
+            - secondary
+        - key: size
+          type: enum
+          label: Size
+          options:
+            - md
+        - key: icon_right
+          type: enum
+          label: Icon Right
+          options:
+            - lucide:arrow-right
+            - lucide:arrow-down
+  - key: stats
+    type: array
+    label: Stats
+    itemType:
+      type: object
+      label: Stat
+      fields:
+        - key: label
+          type: enum
+          label: Label
+          options:
+            - Servers
+            - Phone numbers
+            - Transport
+            - License
+            - Metadata stored
+        - key: value
+          type: enum
+          label: Value
+          options:
+            - 0
+            - None
+            - Tor
+            - Open
+            - Zero
+        - key: sublabel
+          type: enum
+          label: Sublabel
+          options:
+            - Nothing to subpoena
+            - Nothing to leak
+            - Nothing to trace
+            - Nothing to hide
+            - Nothing to seize
+preview:
+  title: [{key: heading}, "Hero"]
+  description: [{key: description}]

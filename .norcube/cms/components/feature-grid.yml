@@ -1,0 +1,109 @@
+label: Feature Grid
+fields:
+  - key: id
+    type: enum
+    label: Section ID
+    options:
+      - why
+      - solution
+      - architecture
+  - key: background
+    type: enum
+    label: Background
+    options:
+      - zinc-50
+  - key: label
+    type: enum
+    label: Label
+    options:
+      - Why Priver
+      - The solution
+      - How it's built
+      - Who it's for
+      - What this means for your work
+  - key: heading
+    type: markdown
+    label: Heading
+    options: {bold: true, italic: true, singleLine: true}
+  - key: description
+    type: enum
+    label: Description
+    options:
+      - Not just for privacy people. For anyone who's ever lost an account, watched a service go dark, or wondered why a messeng…
+      - Signal proved that end-to-end encryption could be easy. Priver takes the next step: removing the servers, the phone numb…
+  - key: columns
+    type: number
+    label: Columns
+  - key: cards
+    type: array
+    label: Cards
+    itemType:
+      type: object
+      label: Card
+      fields:
+        - key: icon
+          type: string
+          label: Icon
+        - key: title
+          type: string
+          label: Title
+        - key: description
+          type: string
+          label: Description
+        - key: variant
+          type: enum
+          label: Variant
+          options:
+            - highlight
+            - plain
+        - key: layer_number
+          type: enum
+          label: Layer Number
+          options:
+            - Layer 01
+            - Layer 02
+            - Layer 03
+        - key: layer_subtitle
+          type: enum
+          label: Layer Subtitle
+          options:
+            - Specification
+            - Reference client
+            - Federated bridge
+        - key: href
+          type: enum
+          label: Card Link
+          options:
+            - /for/journalists/
+  - key: bullets
+    type: array
+    label: Bullets
+    itemType:
+      type: object
+      label: Bullet
+      fields:
+        - key: text
+          type: string
+          label: Text
+  - key: subheading
+    type: enum
+    label: Subheading
+    options:
+      - How it works
+  - key: closing
+    type: object
+    label: Closing
+    fields:
+      - key: primary
+        type: enum
+        label: Primary
+        options:
+          - And everyone in between.
+      - key: secondary
+        type: enum
+        label: Secondary
+        options:
+          - Privacy isn't a feature for the paranoid. It's a right for everyone.
+preview:
+  title: [{key: heading}, "Feature Grid"]
+  description: [{key: description}]

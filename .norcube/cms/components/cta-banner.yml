@@ -1,0 +1,50 @@
+label: CTA Banner
+fields:
+  - key: label
+    type: enum
+    label: Label
+    options:
+      - Going deeper
+      - Go deeper
+  - key: heading
+    type: enum
+    label: Heading
+    options:
+      - Want the full threat model?
+      - Read the full threat model.
+  - key: description
+    type: markdown
+    label: Description
+    options: {bold: true, italic: true, link: true}
+  - key: button
+    type: object
+    label: Button
+    fields:
+      - key: text
+        type: enum
+        label: Button Text
+        options:
+          - Read the threat model
+      - key: href
+        type: enum
+        label: Button Link
+        options:
+          - /threat-model/
+      - key: variant
+        type: enum
+        label: Variant
+        options:
+          - primary
+      - key: size
+        type: enum
+        label: Size
+        options:
+          - md
+      - key: icon_right
+        type: enum
+        label: Icon Right
+        options:
+          - lucide:arrow-right
+preview:
+  title: [{key: heading}, "CTA Banner"]
+  description: [{key: description}]

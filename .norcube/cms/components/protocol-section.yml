@@ -1,0 +1,59 @@
+label: Protocol Section
+fields:
+  - key: id
+    type: enum
+    label: Section ID
+    options:
+      - protocol
+  - key: label
+    type: enum
+    label: Label
+    options:
+      - Open protocol
+  - key: heading
+    type: markdown
+    label: Heading
+    options: {bold: true, italic: true, singleLine: true}
+  - key: paragraphs
+    type: array
+    label: Paragraphs
+    itemType:
+      type: string
+      label: Paragraph
+  - key: callout
+    type: object
+    label: Callout
+    fields:
+      - key: quote
+        type: markdown
+        label: Quote
+        options: {bold: true, italic: true}
+      - key: punchline
+        type: enum
+        label: Punchline
+        options:
+          - That's the point.
+      - key: cards
+        type: array
+        label: Cards
+        itemType:
+          type: object
+          label: Card
+          fields:
+            - key: label
+              type: enum
+              label: Label
+              options:
+                - Spec
+                - Code
+                - Network
+            - key: value
+              type: enum
+              label: Value
+              options:
+                - Public
+                - Open
+                - Distributed
+preview:
+  title: [{key: heading}, "Protocol Section"]
+  description: [{key: label}]

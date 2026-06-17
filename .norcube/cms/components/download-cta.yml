@@ -1,0 +1,73 @@
+label: Download CTA
+fields:
+  - key: id
+    type: enum
+    label: Section ID
+    options:
+      - download
+  - key: label
+    type: enum
+    label: Label
+    options:
+      - Get Priver
+  - key: heading
+    type: markdown
+    label: Heading
+    options: {bold: true, italic: true, singleLine: true}
+  - key: description
+    type: enum
+    label: Description
+    options:
+      - Get Priver for iOS, Android, or desktop. Or read the protocol specification.
+  - key: buttons
+    type: array
+    label: Buttons
+    itemType:
+      type: object
+      label: Button
+      fields:
+        - key: variant
+          type: enum
+          label: Variant
+          options:
+            - platform
+            - header
+        - key: text
+          type: enum
+          label: Button Text
+          options:
+            - iOS
+            - Android
+            - Desktop
+            - Read the Protocol
+        - key: platform_label
+          type: enum
+          label: Platform Label
+          options:
+            - Download for
+        - key: icon_left
+          type: enum
+          label: Icon Left
+          options:
+            - simple-icons:apple
+            - simple-icons:android
+            - lucide:monitor
+        - key: href
+          type: url
+          label: Button Link
+        - key: icon_right
+          type: enum
+          label: Icon Right
+          options:
+            - lucide:arrow-right
+        - key: external
+          type: boolean
+          label: External
+  - key: footer_note
+    type: enum
+    label: Footer Note
+    options:
+      - Developed by Jetlio. Owned by no one.
+preview:
+  title: [{key: heading}, "Download CTA"]
+  description: [{key: description}]
