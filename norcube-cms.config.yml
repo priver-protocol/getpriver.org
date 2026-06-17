@@ -542,7 +542,7 @@ collections:
                 source_text:
                   type: string
                   label: Source label
-                  description: e.g. "Source: ACLU →".
+                  description: 'e.g. "Source: ACLU →".'
                   default: ""
                 source_href:
                   type: url
@@ -609,7 +609,7 @@ collections:
       # ---------- scenario-cards ----------
       scenario-cards:
         label: Scenario cards
-        description: "Before / after" cards — what happens without Priver vs. with it.
+        description: '"Before / after" cards — what happens without Priver vs. with it.'
         preview:
           title: [{ key: heading }, "Scenarios"]
           description: [{ key: description }]
