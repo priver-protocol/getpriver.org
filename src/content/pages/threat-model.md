@@ -16,7 +16,7 @@ blocks:
           text: Jump to comparison
           variant: secondary
       description: How every mainstream messenger leaks your data, why the EU's Chat Control breaks them all, and what Priver's architecture does differently. Every claim on this page is sourced.
-      heading: The threat **model.**
+      heading: The threat **model**
       stats:
         - label: Servers
           sublabel: Nothing to subpoena
