@@ -1,0 +1,79 @@
+label: Download Cta
+description: A call-to-action block for downloading Priver apps.
+fields:
+  - key: id
+    type: enum
+    label: Id
+    options:
+      - download
+  - key: label
+    type: string
+    label: Label
+  - key: heading
+    type: markdown
+    label: Heading
+    options:
+      bold: true
+      italic: true
+      singleLine: true
+  - key: description
+    type: markdown
+    label: Description
+    options:
+      bold: true
+      italic: true
+  - key: buttons
+    type: array
+    label: Buttons
+    itemType:
+      type: object
+      label: Button
+      fields:
+        - key: variant
+          type: enum
+          label: Variant
+          options:
+            - platform
+            - header
+        - key: text
+          type: string
+          label: Text
+        - key: platform_label
+          type: string
+          label: Platform Label
+        - key: icon_left
+          type: enum
+          label: Icon Left
+          options:
+            - simple-icons:apple
+            - simple-icons:android
+            - lucide:monitor
+        - key: href
+          type: url
+          label: Href
+        - key: icon_right
+          type: enum
+          label: Icon Right
+          options:
+            - lucide:arrow-right
+        - key: external
+          type: boolean
+          label: External
+      preview:
+        title:
+          - key: text
+        description:
+          - key: platform_label
+        image:
+          - key: icon_left
+  - key: footer_note
+    type: markdown
+    label: Footer Note
+    options:
+      bold: true
+      italic: true
+preview:
+  title:
+    - key: heading
+  description:
+    - key: description

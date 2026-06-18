@@ -1,0 +1,69 @@
+label: Pages
+description: All site pages and their content blocks.
+hasBody: false
+fields:
+  - key: title
+    type: markdown
+    label: Title
+    options:
+      bold: true
+      italic: true
+      singleLine: true
+  - key: seo
+    type: object
+    label: SEO
+    fields:
+      - key: title
+        type: markdown
+        label: SEO Title
+        options:
+          bold: true
+          italic: true
+          singleLine: true
+      - key: description
+        type: markdown
+        label: SEO Description
+        options:
+          bold: true
+          italic: true
+          link: true
+      - key: canonical
+        type: url
+        label: Canonical URL
+      - key: og_image
+        type: image
+        label: Open Graph Image
+        accept: image/*
+        maxSize: 5242880
+      - key: og_type
+        type: enum
+        label: Open Graph Type
+        options:
+          - website
+          - article
+      - key: twitter_card
+        type: enum
+        label: Twitter Card
+        options:
+          - summary
+    preview:
+      title:
+        - key: title
+      description:
+        - key: description
+      image:
+        - key: og_image
+  - key: blocks
+    type: blocks
+    label: Content Blocks
+    components:
+      - hero
+      - feature-grid
+      - cta-banner
+      - protocol-section
+      - download-cta
+      - split-feature
+      - scenario-cards
+      - article-cards-grid
+      - chat-control-callout
+      - comparison-table

@@ -1,0 +1,58 @@
+label: Cta Banner
+description: A call-to-action banner with heading, description, and button.
+fields:
+  - key: label
+    type: string
+    label: Label
+    description: Short label for the banner.
+  - key: heading
+    type: string
+    label: Heading
+    description: Main heading for the banner.
+  - key: description
+    type: markdown
+    label: Description
+    description: Banner description.
+    options:
+      bold: true
+      italic: true
+      link: true
+  - key: button
+    type: object
+    label: Button
+    fields:
+      - key: text
+        type: string
+        label: Text
+        description: Button text.
+      - key: href
+        type: enum
+        label: Href
+        description: Button link.
+        options:
+          - /threat-model/
+      - key: variant
+        type: enum
+        label: Variant
+        description: Button style variant.
+        options:
+          - primary
+      - key: size
+        type: enum
+        label: Size
+        description: Button size.
+        options:
+          - md
+      - key: icon_right
+        type: enum
+        label: Icon Right
+        description: Icon displayed on the right side of the button.
+        options:
+          - lucide:arrow-right
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: description
+  image: []

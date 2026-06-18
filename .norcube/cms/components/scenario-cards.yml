@@ -1,0 +1,63 @@
+label: Scenario Cards
+description: Displays a set of real-world scenario cards with outcomes.
+fields:
+  - key: id
+    type: string
+    label: ID
+  - key: background
+    type: string
+    label: Background
+  - key: label
+    type: string
+    label: Label
+  - key: heading
+    type: markdown
+    label: Heading
+    options:
+      bold: true
+      italic: true
+      singleLine: true
+  - key: description
+    type: markdown
+    label: Description
+    options:
+      bold: true
+      italic: true
+  - key: cards
+    type: array
+    label: Cards
+    itemType:
+      type: object
+      label: Scenario Card
+      fields:
+        - key: icon
+          type: string
+          label: Icon
+        - key: scenario
+          type: textarea
+          label: Scenario
+        - key: without
+          type: markdown
+          label: Without Priver
+          options:
+            bold: true
+            italic: true
+        - key: with_priver
+          type: markdown
+          label: With Priver
+          options:
+            bold: true
+            italic: true
+      preview:
+        title:
+          - key: scenario
+        description:
+          - key: without
+        image:
+          - key: icon
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: description

@@ -1,0 +1,65 @@
+label: Chat Control Callout
+description: A callout component highlighting the EU Chat Control regulation, with quotes, status, and explanatory content.
+fields:
+  - key: bullets
+    type: array
+    label: Bullets
+    itemType:
+      type: markdown
+      label: Bullet
+  - key: closer
+    type: markdown
+    label: Closer
+  - key: heading
+    type: string
+    label: Heading
+  - key: label
+    type: string
+    label: Label
+  - key: paragraphs
+    type: array
+    label: Paragraphs
+    itemType:
+      type: markdown
+      label: Paragraph
+  - key: quote_cards
+    type: array
+    label: Quote Cards
+    itemType:
+      type: object
+      label: Quote Card
+      fields:
+        - key: body
+          type: html
+          label: Body
+        - key: href
+          type: url
+          label: Href
+        - key: source
+          type: string
+          label: Source
+      preview:
+        title:
+          - key: source
+        description:
+          - key: body
+  - key: status
+    type: object
+    label: Status
+    fields:
+      - key: href
+        type: url
+        label: Href
+      - key: link_text
+        type: string
+        label: Link Text
+      - key: text
+        type: markdown
+        label: Text
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: paragraphs
+    - key: bullets

@@ -1,0 +1,64 @@
+label: Comparison Table
+description: A table comparing features or capabilities across multiple columns.
+fields:
+  - key: columns
+    type: array
+    label: Columns
+    description: Column headers for the comparison table.
+    itemType:
+      type: string
+      label: Column
+  - key: heading
+    type: markdown
+    label: Heading
+    description: Main heading for the comparison table.
+    options:
+      bold: true
+      italic: true
+      singleLine: true
+  - key: highlight_last
+    type: boolean
+    label: Highlight Last
+    description: Highlight the last column.
+  - key: id
+    type: string
+    label: ID
+    description: Unique identifier for the table.
+  - key: label
+    type: string
+    label: Label
+    description: Label for the comparison table.
+  - key: legend
+    type: textarea
+    label: Legend
+    description: Additional notes or legend for the table.
+  - key: rows
+    type: array
+    label: Rows
+    description: Rows of the comparison table.
+    itemType:
+      type: object
+      label: Row
+      fields:
+        - key: capability
+          type: string
+          label: Capability
+          description: Feature or capability being compared.
+        - key: verdicts
+          type: array
+          label: Verdicts
+          description: Verdict for each column.
+          itemType:
+            type: enum
+            label: Verdict
+            options:
+              - no
+              - yes
+              - partial
+preview:
+  title:
+    - key: heading
+    - key: label
+  description:
+    - key: legend
+  image: []
