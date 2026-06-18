@@ -9,6 +9,7 @@ fields:
       bold: true
       italic: true
       singleLine: true
+    required: true
   - key: seo
     type: object
     label: SEO
